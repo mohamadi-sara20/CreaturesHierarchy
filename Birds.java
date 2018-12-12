@@ -24,7 +24,9 @@ public class Birds extends Creatures{
 
     @Override
     public String toString(){
-        return super.toString() + String.format("%10s: %10b    %10s: %10s    %10s: %10b    ", "Has feathers:", this.getFeathers(), "Diet", this.getDiet(), "Flies", this.getFly());
+        StringBuilder representation = new StringBuilder();
+        return super.toString() + representation.append("Diet: " + getDiet() + "Has feathers: " + getFeathers() + "Flies: "+ getFly()).toString();
+
     }
 
 

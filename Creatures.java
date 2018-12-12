@@ -6,7 +6,6 @@ enum Respiration {LUNGS, INTEGUMENTARY, GILLS}
 
 
 public abstract class Creatures {
-
     private Reproduction reproduction;
     private Respiration respiration;
     private Languge language;
@@ -27,7 +26,7 @@ public abstract class Creatures {
 
     @Override
     public String toString(){
-        return String.format("%10s: %10s    %10s: %10s    %10s: %10s    ", "Reproduction", this.getReproduction(), "Respiration", this.getRespiration(), "Language", this.getLanguage());
-
+        StringBuilder representation = new StringBuilder();
+        return representation.append("Reproduction: " + getReproduction() + "Respiration: " + getRespiration() + "Language: " + getLanguage()).toString();
     }
 }
