@@ -2,7 +2,7 @@ package CreaturesHierarchy;
 
 public class Creatures {
     public enum Reproduction {OVIOPAROUS, VIVIPAROUS}
-    public enum LANGUAGE{NA, LIMITED, UNLIMITED};
+    public enum LANGUAGE{NA, LIMITED, UNLIMITED}
     public enum RESPIRATION {LUNGS, INTEGUMENTARY, GILLS}
 
     private Reproduction reproduction;

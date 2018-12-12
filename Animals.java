@@ -2,8 +2,8 @@ package CreaturesHierarchy;
 
 public class Animals extends Mammals{
 
-    public enum Diet{CARNIVOROUS, HERBIVOROUS};
-    public enum Tameness{WILD, DOMESTIC};
+    public enum Diet{CARNIVOROUS, HERBIVOROUS}
+    public enum Tameness{WILD, DOMESTIC}
     private boolean quadrupedal;
 
     private Diet diet;
