@@ -23,7 +23,7 @@ public class Birds extends Creatures{
 
     @Override
     public String toString(){
-        return String.format("%s: %b    %s: %s    %s: %b    ", "Has feathers:", this.getFeathers(), "Diet", this.getDiet(), "Files", this.getFly());
+        return String.format("%s: %b    %s: %s    %s: %b    ", "Has feathers:", this.getFeathers(), "Diet", this.getDiet(), "Flies", this.getFly());
     }
 
 
