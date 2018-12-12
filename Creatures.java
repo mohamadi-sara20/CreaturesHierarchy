@@ -40,21 +40,20 @@ public abstract class Creatures implements Cloneable{
         return false;
     }
 
+
     @Override
     public Object clone() {
-
         try {
             return super.clone();
         }
-
         catch (CloneNotSupportedException e){
             System.err.println("Cloning not supported!");
-            System.exit(1);
             return null;
         }
-
-
     }
 
 
 }
+
+
+
