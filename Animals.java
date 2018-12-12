@@ -27,8 +27,6 @@ public class Animals extends Mammals{
 
     @Override
     public String toString(){
-        StringBuilder representation = new StringBuilder();
-
         return super.toString() + representation.append("Diet: " +  this.getDiet() + "Tameness: " +  this.getTameness() +
                 "Is Quadrupedal: "  +  this.getQuadrupedal()).toString();
     }
