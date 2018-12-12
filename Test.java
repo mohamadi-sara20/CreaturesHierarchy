@@ -17,7 +17,9 @@ public class Test {
 
         for(Creatures creature: creatures){
             System.out.println(creature);
+            
         }
+
 
         //Objects differing in only one characteristic
         Animals compareBear1 = new Animals(Reproduction.OVIOPAROUS, Respiration.LUNGS, Languge.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
@@ -27,6 +29,7 @@ public class Test {
         Animals compareBear = (Animals) bear.clone();
         Humans compareFemale = (Humans) female.clone();
         Birds compareBird = (Birds) bird.clone();
+
 
         compareList[0] = compareBear;
         compareList[1] = compareFemale;
