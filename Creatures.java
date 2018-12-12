@@ -33,7 +33,6 @@ public abstract class Creatures implements Cloneable{
     @Override
     public boolean equals(Object object){
         //Downcast object to allow comparing
-        object = (Creatures) object;
         return (this.getRespiration() == ((Creatures) object).getRespiration() && this.getReproduction() == ((Creatures) object).getReproduction() && this.getLanguage() == ((Creatures) object).getLanguage());
     }
 
