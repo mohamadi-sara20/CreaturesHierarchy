@@ -31,15 +31,13 @@ public class Birds extends Creatures{
     }
 
     @Override
-    public boolean equals(Object object){
-
-        Birds birds = new Birds(Reproduction.OVIOPAROUS, Respiration.GILLS, Languge.NA, true, Diet.CARNIVOROUS, true);
-
-
-        return (super.equals(object) && this.getFly() == ((Birds) object).getFly() && this.getFeathers() == ((Birds) object).getFeathers() && this.getDiet() == ((Birds) object).getDiet());
+    public boolean equals(Object object) {
+        if (object instanceof Birds) {
+            Birds birds = new Birds(Reproduction.OVIOPAROUS, Respiration.GILLS, Languge.NA, true, Diet.CARNIVOROUS, true);
+            return (super.equals(object) && this.getFly() == ((Birds) object).getFly() && this.getFeathers() == ((Birds) object).getFeathers() && this.getDiet() == ((Birds) object).getDiet());
+        }
+        return false;
     }
-
-
 
 }
 

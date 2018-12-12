@@ -22,10 +22,11 @@ public abstract class Mammals extends Creatures {
     }
 
     @Override
-    public boolean equals(Object object){
-        //Downcast object to allow comparing
-        return (super.equals(object) && this.getHair() == ((Mammals) object).getHair());
-
+    public boolean equals(Object object) {
+        if (object instanceof Mammals)
+            //Downcast object to allow comparing
+            return (super.equals(object) && this.getHair() == ((Mammals) object).getHair());
+        return false;
     }
 
 

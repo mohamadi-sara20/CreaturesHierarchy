@@ -34,10 +34,14 @@ public class Animals extends Mammals{
 
 
     @Override
-    public boolean equals(Object object){
-        return (super.equals(object) && this.getQuadrupedal() == ((Animals) object).getQuadrupedal() && this.getDiet() == ((Animals) object).getDiet() && this.getTameness() ==  ((Animals) object).getTameness());
-    }
+    public boolean equals(Object object) {
+        if (object instanceof Animals) {
+            Animals animal = (Animals) object;
+            return (super.equals(object) && this.getQuadrupedal() == animal.getQuadrupedal() && this.getDiet() == animal.getDiet() && this.getTameness() == animal.getTameness());
+        }
+        return false;
 
+    }
 
 
 }

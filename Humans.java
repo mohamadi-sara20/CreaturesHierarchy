@@ -26,11 +26,12 @@ public class Humans extends Mammals {
     }
 
     @Override
-    public boolean equals(Object object){
-        //Downcast object to allow comparing
-        return (super.equals(object) && this.getAge() == ((Humans) object).getAge() && this.getGender() == ((Humans) object).getGender());
+    public boolean equals(Object object) {
+        if (object instanceof Humans)
+            //Downcast object to allow comparing
+            return (super.equals(object) && this.getAge() == ((Humans) object).getAge() && this.getGender() == ((Humans) object).getGender());
+        return false;
     }
-
 
 
 }

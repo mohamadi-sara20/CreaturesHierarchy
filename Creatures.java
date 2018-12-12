@@ -31,11 +31,14 @@ public abstract class Creatures implements Cloneable{
     }
 
     @Override
-    public boolean equals(Object object){
-        //Downcast object to allow comparing
-        return (this.getRespiration() == ((Creatures) object).getRespiration() && this.getReproduction() == ((Creatures) object).getReproduction() && this.getLanguage() == ((Creatures) object).getLanguage());
+    public boolean equals(Object object) {
+        if (object instanceof Creatures) {
+            //Downcast object to allow comparing
+            Creatures creature = (Creatures) object;
+            return (this.getRespiration() == creature.getRespiration() && this.getReproduction() == creature.getReproduction() && this.getLanguage() == creature.getLanguage());
+        }
+        return false;
     }
-
 
     @Override
     public Object clone() {

@@ -38,6 +38,8 @@ public class Test {
         compareList[4] = compareFemale1;
         compareList[5] = compareBird1;
 
+        System.out.println(compareBear.equals("fgyji"));
+
 
 
 
