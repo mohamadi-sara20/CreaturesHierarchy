@@ -1,25 +1,34 @@
 package CreaturesHierarchy;
 
+enum Diet{CARNIVOROUS, HERBIVOROUS}
+enum Tameness{WILD, DOMESTIC}
+
 public class Animals extends Mammals{
 
-    public enum Diet{CARNIVOROUS, HERBIVOROUS}
-    public enum Tameness{WILD, DOMESTIC}
     private boolean quadrupedal;
-
     private Diet diet;
     private Tameness tameness;
 
 
-    public Animals(Reproduction reproduction, RESPIRATION respiration, LANGUAGE language, Hair hair, Diet diet, Tameness tameness, boolean quadrupedal){
+    public Animals(Reproduction reproduction, Respiration respiration, Languge language, Hair hair, Diet diet, Tameness tameness, boolean quadrupedal){
         super(reproduction, respiration, language, hair);
         this.diet = diet;
         this.tameness = tameness;
         this.quadrupedal = quadrupedal;
     }
 
+    public void setQuadrupedal(boolean quadrupedal){this.quadrupedal = quadrupedal;}
+    public void setDiet(Diet diet){this.diet = diet;}
+    public void setTameness(Tameness tameness){this.tameness = tameness;}
+
+    public Diet getDiet(){return this.diet;}
+    public Tameness getTameness(){return this.tameness;}
+    public boolean getQuadrupedal(){return  this.quadrupedal;}
+
     @Override
     public String toString(){
-        return super.toString() + String.format("%s: %s    %s: %s    %s: %b    ", "Diet", this.diet, "Tameness", this.tameness, "Is Quadrupedal:" , this.quadrupedal);
+        return super.toString() + String.format("%s: %s    %s: %s    %s: %b    ", "Diet", this.getDiet(), "Tameness", this.getTameness(),
+                "Is Quadrupedal:" , this.getQuadrupedal());
     }
 
 

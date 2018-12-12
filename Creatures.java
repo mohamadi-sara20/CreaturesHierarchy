@@ -1,22 +1,33 @@
 package CreaturesHierarchy;
 
+enum Reproduction {OVIOPAROUS, VIVIPAROUS}
+enum Languge{NA, LIMITED, UNLIMITED}
+enum Respiration {LUNGS, INTEGUMENTARY, GILLS}
+
+
 public class Creatures {
-    public enum Reproduction {OVIOPAROUS, VIVIPAROUS}
-    public enum LANGUAGE{NA, LIMITED, UNLIMITED}
-    public enum RESPIRATION {LUNGS, INTEGUMENTARY, GILLS}
 
     private Reproduction reproduction;
-    private RESPIRATION respiration;
-    private LANGUAGE language;
-    public Creatures(Reproduction reproduction, RESPIRATION respiration, LANGUAGE language){
+    private Respiration respiration;
+    private Languge language;
+    public Creatures(Reproduction reproduction, Respiration respiration, Languge language){
         this.respiration = respiration;
         this.reproduction = reproduction;
         this.language = language;
     }
 
+    public void setReproduction(Reproduction reproduction){this.reproduction = reproduction;}
+    public void setRespiration(Respiration respiration){this.respiration = respiration;}
+    public void setLanguage(Languge language){this.language = language;}
+
+    public Reproduction getReproduction(){return this.reproduction;}
+    public Respiration getRespiration(){return  this.respiration;}
+    public Languge getLanguage(){return this.language;}
+
+
     @Override
     public String toString(){
-        return String.format("%s: %s    %s: %s    %s: %s    ", "Reproduction", this.reproduction, "Respiration", this.respiration, "Language", this.language);
+        return String.format("%s: %s    %s: %s    %s: %s    ", "Reproduction", this.getReproduction(), "Respiration", this.getRespiration(), "Language", this.getLanguage());
 
     }
 }

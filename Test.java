@@ -6,11 +6,11 @@ public class Test {
 
         Creatures[] creatures = new Creatures[5];
 
-        Animals bear = new Animals(Creatures.Reproduction.VIVIPAROUS, Creatures.RESPIRATION.LUNGS, Creatures.LANGUAGE.NA, Mammals.Hair.HAIR, Animals.Diet.CARNIVOROUS, Animals.Tameness.WILD, false);
-        Humans female = new Humans(Creatures.Reproduction.VIVIPAROUS, Creatures.RESPIRATION.LUNGS, Creatures.LANGUAGE.UNLIMITED, Mammals.Hair.HAIR, Humans.Age.YOUNG, Humans.Gender.FEMALE);
-        Birds bird = new Birds(Creatures.Reproduction.OVIOPAROUS, Creatures.RESPIRATION.LUNGS, Creatures.LANGUAGE.LIMITED, true, Birds.Diet.HERBIVOROUS, true);
-        Mammals dog = new Mammals(Creatures.Reproduction.VIVIPAROUS, Creatures.RESPIRATION.LUNGS, Creatures.LANGUAGE.LIMITED, Mammals.Hair.FUR);
-        Creatures fish = new Creatures(Creatures.Reproduction.OVIOPAROUS, Creatures.RESPIRATION.GILLS, Creatures.LANGUAGE.NA);
+        Animals bear = new Animals(Reproduction.VIVIPAROUS, Respiration.LUNGS, Languge.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
+        Humans female = new Humans(Reproduction.VIVIPAROUS, Respiration.LUNGS, Languge.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
+        Birds bird = new Birds(Reproduction.OVIOPAROUS, Respiration.LUNGS, Languge.LIMITED, true, Diet.HERBIVOROUS, true);
+        Mammals dog = new Mammals(Reproduction.VIVIPAROUS, Respiration.LUNGS, Languge.LIMITED, Hair.FUR);
+        Creatures fish = new Creatures(Reproduction.OVIOPAROUS, Respiration.GILLS, Languge.NA);
 
         creatures[0] = bear;
         creatures[1] = female;
@@ -21,9 +21,6 @@ public class Test {
         for(Creatures creature: creatures){
             System.out.println(creature);
         }
-
-
-
 
 
     }

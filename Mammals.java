@@ -1,18 +1,23 @@
 package CreaturesHierarchy;
 
+enum Hair{FUR, HAIR}
+
 public class Mammals extends Creatures {
-    public enum Hair{FUR, HAIR}
     private Hair hair;
 
-    public Mammals(Reproduction reproduction, RESPIRATION respiration, LANGUAGE language, Hair hair){
+    public Mammals(Reproduction reproduction, Respiration respiration, Languge language, Hair hair){
         super(reproduction, respiration, language);
         this.hair = hair;
     }
 
+    public void setHair(Hair hair) {
+        this.hair = hair;
+    }
+    public Hair getHair(){return this.hair;}
 
     @Override
     public String toString(){
-        return super.toString() + String.format("%s%s    ", "Hair Type: ", this.hair);
+        return super.toString() + String.format("%s%s    ", "Hair Type: ", this.getHair());
     }
 
 }
