@@ -21,6 +21,6 @@ public class Humans extends Mammals {
 
     @Override
     public String toString(){
-        return super.toString() + String.format("%s: %s    %s: %s    ", "Gender", this.getGender(), "Age", this.getAge());
+        return super.toString() + String.format("%10s: %10s    %10s: %10s    ", "Gender", this.getGender(), "Age", this.getAge());
     }
 }

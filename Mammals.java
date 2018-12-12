@@ -17,7 +17,7 @@ public abstract class Mammals extends Creatures {
 
     @Override
     public String toString(){
-        return super.toString() + String.format("%s%s    ", "Hair Type: ", this.getHair());
+        return super.toString() + String.format("%10s: %10s    ", "Hair Type", this.getHair());
     }
 
 }

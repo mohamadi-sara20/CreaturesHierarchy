@@ -27,7 +27,7 @@ public class Animals extends Mammals{
 
     @Override
     public String toString(){
-        return super.toString() + String.format("%s: %s    %s: %s    %s: %b    ", "Diet", this.getDiet(), "Tameness", this.getTameness(),
+        return super.toString() + String.format("%10s: %10s    %10s: %10s    %10s: %10b    ", "Diet", this.getDiet(), "Tameness", this.getTameness(),
                 "Is Quadrupedal:" , this.getQuadrupedal());
     }
 

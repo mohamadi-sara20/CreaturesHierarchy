@@ -27,7 +27,7 @@ public abstract class Creatures {
 
     @Override
     public String toString(){
-        return String.format("%s: %s    %s: %s    %s: %s    ", "Reproduction", this.getReproduction(), "Respiration", this.getRespiration(), "Language", this.getLanguage());
+        return String.format("%10s: %10s    %10s: %10s    %10s: %10s    ", "Reproduction", this.getReproduction(), "Respiration", this.getRespiration(), "Language", this.getLanguage());
 
     }
 }
