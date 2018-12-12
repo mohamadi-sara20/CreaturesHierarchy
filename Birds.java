@@ -1,5 +1,7 @@
 package CreaturesHierarchy;
 
+import java.io.ObjectInputStream;
+
 public class Birds extends Creatures{
 
     public boolean fly;
@@ -24,9 +26,19 @@ public class Birds extends Creatures{
 
     @Override
     public String toString(){
+        StringBuilder representation = new StringBuilder();
         return super.toString() + representation.append("    Diet: " + getDiet() + "    Has feathers: " + getFeathers() + "    Flies: "+ getFly()).toString();
-
     }
+
+    @Override
+    public boolean equals(Object object){
+
+        Birds birds = new Birds(Reproduction.OVIOPAROUS, Respiration.GILLS, Languge.NA, true, Diet.CARNIVOROUS, true);
+
+
+        return (super.equals(object) && this.getFly() == ((Birds) object).getFly() && this.getFeathers() == ((Birds) object).getFeathers() && this.getDiet() == ((Birds) object).getDiet());
+    }
+
 
 
 }

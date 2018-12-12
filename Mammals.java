@@ -17,8 +17,18 @@ public abstract class Mammals extends Creatures {
 
     @Override
     public String toString(){
+        StringBuilder representation = new StringBuilder();
         return super.toString() + representation.append("    Hair:" + getHair()).toString();
     }
+
+    @Override
+    public boolean equals(Object object){
+        //Downcast object to allow comparing
+        return (super.equals(object) && this.getHair() == ((Mammals) object).getHair());
+
+    }
+
+
 
 }
 

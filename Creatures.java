@@ -5,8 +5,7 @@ enum Languge{NA, LIMITED, UNLIMITED}
 enum Respiration {LUNGS, INTEGUMENTARY, GILLS}
 
 
-public abstract class Creatures {
-    public StringBuilder representation = new StringBuilder();
+public abstract class Creatures implements Cloneable{
     private Reproduction reproduction;
     private Respiration respiration;
     private Languge language;
@@ -27,6 +26,33 @@ public abstract class Creatures {
 
     @Override
     public String toString(){
+        StringBuilder representation = new StringBuilder();
         return representation.append("Reproduction: " + getReproduction() + "    Respiration: " + getRespiration() + " Language:    " + getLanguage()).toString();
     }
+
+    @Override
+    public boolean equals(Object object){
+        //Downcast object to allow comparing
+        object = (Creatures) object;
+        return (this.getRespiration() == ((Creatures) object).getRespiration() && this.getReproduction() == ((Creatures) object).getReproduction() && this.getLanguage() == ((Creatures) object).getLanguage());
+    }
+
+
+    @Override
+    public Object clone() {
+
+        try {
+            return super.clone();
+        }
+
+        catch (CloneNotSupportedException e){
+            System.err.println("Cloning not supported!");
+            System.exit(1);
+            return null;
+        }
+
+
+    }
+
+
 }

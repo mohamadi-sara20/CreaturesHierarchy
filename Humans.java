@@ -21,6 +21,15 @@ public class Humans extends Mammals {
 
     @Override
     public String toString(){
+        StringBuilder representation = new StringBuilder();
         return super.toString() + representation.append("    Gender: " + this.getGender() +  "    Age: " +this.getAge()).toString();
     }
+
+    @Override
+    public boolean equals(Object object){
+        //Downcast object to allow comparing
+        return (super.equals(object) && this.getAge() == ((Humans) object).getAge() && this.getGender() == ((Humans) object).getGender());
+    }
+
+
 }
