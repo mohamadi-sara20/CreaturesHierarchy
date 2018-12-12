@@ -1,4 +1,4 @@
-package DesingProject;
+package CreaturesHierarchy;
 
 public class Mammals extends Creatures {
     public enum Hair{FUR, HAIR}

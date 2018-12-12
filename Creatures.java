@@ -1,4 +1,4 @@
-package DesingProject;
+package CreaturesHierarchy;
 
 public class Creatures {
     public enum Reproduction {OVIOPAROUS, VIVIPAROUS}

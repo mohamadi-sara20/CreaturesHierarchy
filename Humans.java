@@ -1,4 +1,4 @@
-package DesingProject;
+package CreaturesHierarchy;
 
 public class Humans extends Mammals {
     public enum Gender{MALE, FEMALE}
