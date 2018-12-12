@@ -2,7 +2,7 @@ package CreaturesHierarchy;
 
 enum Hair{FUR, HAIR}
 
-public class Mammals extends Creatures {
+public abstract class Mammals extends Creatures {
     private Hair hair;
 
     public Mammals(Reproduction reproduction, Respiration respiration, Languge language, Hair hair){

@@ -5,7 +5,7 @@ enum Languge{NA, LIMITED, UNLIMITED}
 enum Respiration {LUNGS, INTEGUMENTARY, GILLS}
 
 
-public class Creatures {
+public abstract class Creatures {
 
     private Reproduction reproduction;
     private Respiration respiration;
