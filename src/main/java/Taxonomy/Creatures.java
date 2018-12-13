@@ -1,10 +1,5 @@
 package Taxonomy;
 
-enum Reproduction {OVIOPAROUS, VIVIPAROUS}
-enum Languge{NA, LIMITED, UNLIMITED}
-enum Respiration {LUNGS, INTEGUMENTARY, GILLS}
-
-
 public abstract class Creatures implements Cloneable{
     private Reproduction reproduction;
     private Respiration respiration;
@@ -30,15 +25,30 @@ public abstract class Creatures implements Cloneable{
         return representation.append("Reproduction: " + getReproduction() + "    Respiration: " + getRespiration() + " Language:    " + getLanguage()).toString();
     }
 
-    @Override
-    public boolean equals(Object object) {
-        if (object instanceof Creatures) {
-            //Downcast object to allow comparing
-            Creatures creature = (Creatures) object;
-            return (this.getRespiration() == creature.getRespiration() && this.getReproduction() == creature.getReproduction() && this.getLanguage() == creature.getLanguage());
+   // @Override
+    public boolean equals(Creatures creatures) {
+
+        if (creatures == this)
+            return true;
+        if (creatures==null)
+            return false;
+
+        if (creatures == this && creatures instanceof Creatures) {
+        //    Creatures creature = (Creatures) object;
+            return (this.getRespiration() == creatures.getRespiration() && this.getReproduction() == creatures.getReproduction() && this.getLanguage() == creatures.getLanguage());
         }
         return false;
     }
+
+    @Override
+    public int hashCode(){
+        int result = 17;
+        result += 31 * result + (getReproduction() == null ? 0 : getReproduction().hashCode());
+        result += 31 * result + (getRespiration() == null ? 0 : getRespiration().hashCode());
+        result += 31 * result + (getLanguage() == null ? 0 : getLanguage().hashCode());
+        return result;
+    }
+
 
 
     @Override

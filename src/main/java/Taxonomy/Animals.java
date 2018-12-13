@@ -1,8 +1,5 @@
 package Taxonomy;
 
-enum Diet{CARNIVOROUS, HERBIVOROUS}
-enum Tameness{WILD, DOMESTIC}
-
 public class Animals extends Mammals{
 
     private boolean quadrupedal;
@@ -35,12 +32,21 @@ public class Animals extends Mammals{
 
     @Override
     public boolean equals(Object object) {
-        if (object instanceof Animals) {
+        if (object == this && object instanceof Animals) {
             Animals animal = (Animals) object;
             return (super.equals(object) && this.getQuadrupedal() == animal.getQuadrupedal() && this.getDiet() == animal.getDiet() && this.getTameness() == animal.getTameness());
         }
         return false;
 
+    }
+
+    @Override
+    public int hashCode(){
+        int result = 17;
+        result += 31 * result + (getQuadrupedal() ? 1 : 0);
+        result += 31 * result + (getDiet() == null ? 0 : getDiet().hashCode());
+        result += 31 * result + (getTameness() == null ? 0 : getTameness().hashCode());
+        return result;
     }
 
 

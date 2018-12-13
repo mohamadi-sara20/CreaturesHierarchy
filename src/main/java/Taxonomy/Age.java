@@ -1,0 +1,4 @@
+package Taxonomy;
+
+public enum Age{INFANT, CHILD, ADOLESCENT, YOUNG, ADULT, MIDDLEAGED, SENIOR}
+

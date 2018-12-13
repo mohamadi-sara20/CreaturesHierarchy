@@ -1,8 +1,5 @@
 package Taxonomy;
 
-enum Gender{MALE, FEMALE}
-enum Age{INFANT, CHILD, ADOLESCENT, YOUNG, ADULT, MIDDLEAGED, SENIOR}
-
 public class Humans extends Mammals {
 
     private Gender gender;
@@ -28,10 +25,19 @@ public class Humans extends Mammals {
 
     @Override
     public boolean equals(Object object) {
-        if (object instanceof Humans)
-            //Downcast object to allow comparing
+        if(object == this && object instanceof Humans)
             return (super.equals(object) && this.getAge() == ((Humans) object).getAge() && this.getGender() == ((Humans) object).getGender());
         return false;
+    }
+
+    @Override
+    public int hashCode(){
+        int result = 17;
+
+        result += 31 * result + (getAge() == null ? 0 : getAge().hashCode());
+        result += 31 * result + (getGender() == null ? 0 : getGender().hashCode());
+
+        return result;
     }
 
 

@@ -31,13 +31,21 @@ public class Birds extends Creatures{
 
     @Override
     public boolean equals(Object object) {
-        if (object instanceof Birds) {
-            Birds birds = new Birds(Reproduction.OVIOPAROUS, Respiration.GILLS, Languge.NA, true, Diet.CARNIVOROUS, true);
+
+        if(object == this && object instanceof Birds) {
             return (super.equals(object) && this.getFly() == ((Birds) object).getFly() && this.getFeathers() == ((Birds) object).getFeathers() && this.getDiet() == ((Birds) object).getDiet());
         }
         return false;
     }
 
-}
 
+    @Override
+    public int hashCode(){
+        int result = 17;
+        result += 31 * result + (getDiet() == null ? 0 : getDiet().hashCode());
+        result += 31 * result + (getFeathers() ? 1 : 0);
+        result += 31 * result + (getFly() ? 1 : 0);
+        return result;
+    }
+}
 

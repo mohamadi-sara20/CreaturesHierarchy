@@ -1,5 +1,7 @@
 package Taxonomy;
 
+import java.awt.*;
+
 public class Test {
 
     public static void main(String[] args){
@@ -11,9 +13,14 @@ public class Test {
         Humans female = new Humans(Reproduction.VIVIPAROUS, Respiration.LUNGS, Languge.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
         Birds bird = new Birds(Reproduction.OVIOPAROUS, Respiration.LUNGS, Languge.LIMITED, true, Diet.HERBIVOROUS, true);
 
+        Animals b = bear;
+        System.out.println(b.equals(bear));
+
         creatures[0] = bear;
         creatures[1] = female;
         creatures[2] = bird;
+
+
 
         for(Creatures creature: creatures){
             System.out.println(creature);

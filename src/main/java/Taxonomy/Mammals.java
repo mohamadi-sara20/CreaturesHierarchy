@@ -1,7 +1,5 @@
 package Taxonomy;
 
-enum Hair{FUR, HAIR}
-
 public abstract class Mammals extends Creatures {
     private Hair hair;
 
@@ -23,11 +21,21 @@ public abstract class Mammals extends Creatures {
 
     @Override
     public boolean equals(Object object) {
-        if (object instanceof Mammals)
-            //Downcast object to allow comparing
+        if (object == this && object instanceof Mammals)
             return (super.equals(object) && this.getHair() == ((Mammals) object).getHair());
         return false;
     }
+
+
+    @Override
+    public int hashCode(){
+        int result = 17;
+        result += 31 * result + (getHair() == null ? 0 : getHair().hashCode());
+        return result;
+
+    }
+
+
 
 }
 
