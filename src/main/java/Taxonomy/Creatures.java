@@ -3,8 +3,8 @@ package Taxonomy;
 public abstract class Creatures implements Cloneable{
     private Reproduction reproduction;
     private Respiration respiration;
-    private Languge language;
-    public Creatures(Reproduction reproduction, Respiration respiration, Languge language){
+    private Language language;
+    public Creatures(Reproduction reproduction, Respiration respiration, Language language){
         this.respiration = respiration;
         this.reproduction = reproduction;
         this.language = language;
@@ -12,11 +12,11 @@ public abstract class Creatures implements Cloneable{
 
     public void setReproduction(Reproduction reproduction){this.reproduction = reproduction;}
     public void setRespiration(Respiration respiration){this.respiration = respiration;}
-    public void setLanguage(Languge language){this.language = language;}
+    public void setLanguage(Language language){this.language = language;}
 
     public Reproduction getReproduction(){return this.reproduction;}
     public Respiration getRespiration(){return  this.respiration;}
-    public Languge getLanguage(){return this.language;}
+    public Language getLanguage(){return this.language;}
 
 
     @Override

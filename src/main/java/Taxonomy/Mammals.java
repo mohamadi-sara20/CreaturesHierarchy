@@ -3,7 +3,7 @@ package Taxonomy;
 public abstract class Mammals extends Creatures {
     private Hair hair;
 
-    public Mammals(Reproduction reproduction, Respiration respiration, Languge language, Hair hair){
+    public Mammals(Reproduction reproduction, Respiration respiration, Language language, Hair hair){
         super(reproduction, respiration, language);
         this.hair = hair;
     }

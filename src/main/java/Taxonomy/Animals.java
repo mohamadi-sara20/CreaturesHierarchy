@@ -7,7 +7,7 @@ public class Animals extends Mammals{
     private Tameness tameness;
 
 
-    public Animals(Reproduction reproduction, Respiration respiration, Languge language, Hair hair, Diet diet, Tameness tameness, boolean quadrupedal){
+    public Animals(Reproduction reproduction, Respiration respiration, Language language, Hair hair, Diet diet, Tameness tameness, boolean quadrupedal){
         super(reproduction, respiration, language, hair);
         this.diet = diet;
         this.tameness = tameness;

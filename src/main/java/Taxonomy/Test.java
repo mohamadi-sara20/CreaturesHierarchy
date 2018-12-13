@@ -9,9 +9,9 @@ public class Test {
         Creatures[] creatures = new Creatures[3];
         Creatures[] compareList = new Creatures[6];
 
-        Animals bear = new Animals(Reproduction.VIVIPAROUS, Respiration.LUNGS, Languge.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
-        Humans female = new Humans(Reproduction.VIVIPAROUS, Respiration.LUNGS, Languge.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
-        Birds bird = new Birds(Reproduction.OVIOPAROUS, Respiration.LUNGS, Languge.LIMITED, true, Diet.HERBIVOROUS, true);
+        Animals bear = new Animals(Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
+        Humans female = new Humans(Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
+        Birds bird = new Birds(Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
 
         Animals b = bear;
         System.out.println(b.equals(bear));
@@ -29,9 +29,9 @@ public class Test {
 
 
         //Objects differing in only one characteristic
-        Animals compareBear1 = new Animals(Reproduction.OVIOPAROUS, Respiration.LUNGS, Languge.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
-        Humans compareFemale1 = new Humans(Reproduction.OVIOPAROUS, Respiration.LUNGS, Languge.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
-        Birds compareBird1 = new Birds(Reproduction.VIVIPAROUS, Respiration.LUNGS, Languge.LIMITED, true, Diet.HERBIVOROUS, true);
+        Animals compareBear1 = new Animals(Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
+        Humans compareFemale1 = new Humans(Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
+        Birds compareBird1 = new Birds(Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
 
         Animals compareBear = (Animals) bear.clone();
         Humans compareFemale = (Humans) female.clone();
