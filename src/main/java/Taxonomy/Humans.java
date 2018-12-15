@@ -1,5 +1,7 @@
 package Taxonomy;
 
+import java.util.HashMap;
+
 public class Humans extends Mammals {
 
     private Gender gender;
@@ -20,23 +22,28 @@ public class Humans extends Mammals {
     @Override
     public String toString(){
         final StringBuilder representation = new StringBuilder();
-        return super.toString() + representation.append("    Gender: " + this.getGender() +  "    Age: " +this.getAge()).toString();
+        return representation.append(super.toString()).append("    Gender: ").append(this.getGender()).append(  "    Age: ").append(this.getAge()).toString();
     }
 
     @Override
     public boolean equals(Object object) {
-        if(object == this && object instanceof Humans)
-            return (super.equals(object) && this.getAge() == ((Humans) object).getAge() && this.getGender() == ((Humans) object).getGender());
+        if(object == this)
+            return true;
+
+        if(object instanceof Humans) {
+            Humans human = (Humans) object;
+            return (super.equals(object) && this.getAge() == human.getAge() && this.getGender() == (human.getGender()));
+        }
+
         return false;
     }
 
     @Override
     public int hashCode(){
         int result = 17;
-
         result += 31 * result + (getAge() == null ? 0 : getAge().hashCode());
         result += 31 * result + (getGender() == null ? 0 : getGender().hashCode());
-
+        result += super.hashCode();
         return result;
     }
 

@@ -25,19 +25,22 @@ public class Animals extends Mammals{
     @Override
     public String toString(){
         final StringBuilder representation = new StringBuilder();
-        return super.toString() + representation.append("Diet: " +  this.getDiet() + "Tameness: " +  this.getTameness() +
-                "Is Quadrupedal: "  +  this.getQuadrupedal()).toString();
+        return representation.append(super.toString()).append("Diet: ").append(this.getDiet()).append("Tameness: ").append(this.getTameness()).append("Is Quadrupedal: ").append(this.getQuadrupedal()).toString();
     }
 
 
     @Override
     public boolean equals(Object object) {
-        if (object == this && object instanceof Animals) {
-            Animals animal = (Animals) object;
-            return (super.equals(object) && this.getQuadrupedal() == animal.getQuadrupedal() && this.getDiet() == animal.getDiet() && this.getTameness() == animal.getTameness());
-        }
-        return false;
 
+        if(object == this)
+            return true;
+
+        if (object instanceof Animals) {
+            Animals animal = (Animals) object;
+            return (super.equals(animal) && this.getQuadrupedal() == animal.getQuadrupedal() && this.getDiet() == animal.getDiet() && this.getTameness() == animal.getTameness());
+        }
+
+        return false;
     }
 
     @Override
@@ -46,6 +49,7 @@ public class Animals extends Mammals{
         result += 31 * result + (getQuadrupedal() ? 1 : 0);
         result += 31 * result + (getDiet() == null ? 0 : getDiet().hashCode());
         result += 31 * result + (getTameness() == null ? 0 : getTameness().hashCode());
+        result += super.hashCode();
         return result;
     }
 

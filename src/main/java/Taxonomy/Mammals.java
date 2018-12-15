@@ -16,14 +16,12 @@ public abstract class Mammals extends Creatures {
     @Override
     public String toString(){
         final StringBuilder representation = new StringBuilder();
-        return super.toString() + representation.append("    Hair:" + getHair()).toString();
+        return representation.append(super.toString()).append("    Hair:").append(getHair()).toString();
     }
 
     @Override
     public boolean equals(Object object) {
-        if (object == this && object instanceof Mammals)
-            return (super.equals(object) && this.getHair() == ((Mammals) object).getHair());
-        return false;
+        return (super.equals(object) && this.getHair() == ((Mammals) object).getHair());
     }
 
 
@@ -31,6 +29,7 @@ public abstract class Mammals extends Creatures {
     public int hashCode(){
         int result = 17;
         result += 31 * result + (getHair() == null ? 0 : getHair().hashCode());
+        result += super.hashCode();
         return result;
 
     }

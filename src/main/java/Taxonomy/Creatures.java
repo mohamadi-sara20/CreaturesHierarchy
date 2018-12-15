@@ -22,21 +22,17 @@ public abstract class Creatures implements Cloneable{
     @Override
     public String toString(){
         final StringBuilder representation = new StringBuilder();
-        return representation.append("Reproduction: " + getReproduction() + "    Respiration: " + getRespiration() + " Language:    " + getLanguage()).toString();
+        return representation.append("Reproduction: ").append(getReproduction()).append( "    Respiration: ").append(getRespiration()).append( " Language:    ").append(getLanguage()).toString();
     }
 
-   // @Override
-    public boolean equals(Creatures creatures) {
+    @Override
+    public boolean equals(Object object) {
 
-        if (creatures == this)
-            return true;
-        if (creatures==null)
-            return false;
-
-        if (creatures == this && creatures instanceof Creatures) {
-        //    Creatures creature = (Creatures) object;
-            return (this.getRespiration() == creatures.getRespiration() && this.getReproduction() == creatures.getReproduction() && this.getLanguage() == creatures.getLanguage());
+        if (object instanceof Creatures) {
+            Creatures creature = (Creatures) object;
+            return (this.getRespiration() == creature.getRespiration() && this.getReproduction() == creature.getReproduction() && this.getLanguage() == creature.getLanguage());
         }
+
         return false;
     }
 
@@ -50,17 +46,6 @@ public abstract class Creatures implements Cloneable{
     }
 
 
-
-    @Override
-    public Object clone() {
-        try {
-            return super.clone();
-        }
-        catch (CloneNotSupportedException e){
-            System.err.println("Cloning not supported!");
-            return null;
-        }
-    }
 
 
 }

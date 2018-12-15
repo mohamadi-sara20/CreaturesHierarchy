@@ -1,7 +1,5 @@
 package Taxonomy;
 
-import java.awt.*;
-
 public class Test {
 
     public static void main(String[] args){
@@ -13,14 +11,9 @@ public class Test {
         Humans female = new Humans(Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
         Birds bird = new Birds(Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
 
-        Animals b = bear;
-        System.out.println(b.equals(bear));
-
         creatures[0] = bear;
         creatures[1] = female;
         creatures[2] = bird;
-
-
 
         for(Creatures creature: creatures){
             System.out.println(creature);
@@ -29,13 +22,15 @@ public class Test {
 
 
         //Objects differing in only one characteristic
+        Animals compareBear =  new Animals(Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
+        Humans compareFemale = new Humans(Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
+        Birds compareBird = new Birds(Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
+
+
         Animals compareBear1 = new Animals(Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
         Humans compareFemale1 = new Humans(Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
         Birds compareBird1 = new Birds(Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
 
-        Animals compareBear = (Animals) bear.clone();
-        Humans compareFemale = (Humans) female.clone();
-        Birds compareBird = (Birds) bird.clone();
 
 
         compareList[0] = compareBear;
@@ -49,9 +44,12 @@ public class Test {
         for(int i = 0; i < creatures.length; i++){
             for(int j = 0; j < compareList.length; j++){
                 System.out.println("Creature " + (i + 1) + " equals creature " + (j + 1) + " : " + creatures[i].equals(compareList[j]));
-            }
 
+            }
         }
+
+
+
 
     }
 }
