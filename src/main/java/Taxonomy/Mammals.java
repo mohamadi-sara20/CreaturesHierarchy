@@ -3,8 +3,8 @@ package Taxonomy;
 public abstract class Mammals extends Creatures {
     private Hair hair;
 
-    public Mammals(Reproduction reproduction, Respiration respiration, Language language, Hair hair){
-        super(reproduction, respiration, language);
+    public Mammals(String species, Reproduction reproduction, Respiration respiration, Language language, Hair hair){
+        super(species, reproduction, respiration, language);
         this.hair = hair;
     }
 
@@ -33,6 +33,10 @@ public abstract class Mammals extends Creatures {
 
     }
 
+    @Override
+    public Mammals clone() throws CloneNotSupportedException{
+        return (Mammals) super.clone();
+    }
 
 
 }

@@ -2,51 +2,67 @@ package Taxonomy;
 
 public class Test {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         Creatures[] creatures = new Creatures[3];
         Creatures[] compareList = new Creatures[6];
 
-        Animals bear = new Animals(Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
-        Humans female = new Humans(Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
-        Birds bird = new Birds(Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
+        Animals yogi = new Animals("Bear", Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
+        Humans memol = new Humans("Homo Sapiens", Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
+        Birds theUglyDuckling = new Birds("Duck", Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
 
-        creatures[0] = bear;
-        creatures[1] = female;
-        creatures[2] = bird;
+        creatures[0] = yogi;
+        creatures[1] = memol;
+        creatures[2] = theUglyDuckling;
 
-        for(Creatures creature: creatures){
+        for (Creatures creature : creatures) {
             System.out.println(creature);
-            
+
         }
 
 
         //Objects differing in only one characteristic
-        Animals compareBear =  new Animals(Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
-        Humans compareFemale = new Humans(Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
-        Birds compareBird = new Birds(Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
+        try {
+
+            Animals bamse = yogi.clone();
+            Humans hana = memol.clone();
+            Birds donaldDuck = theUglyDuckling.clone();
+
+            Animals winnieThePooh = bamse.clone();
+            winnieThePooh.setTameness(Tameness.DOMESTIC);
+            winnieThePooh.setLanguage(Language.UNLIMITED);
+
+            Humans lucien = hana.clone();
+            lucien.setAge(Age.ADOLESCENT);
+            lucien.setGender(Gender.MALE);
+
+            Birds countDuckula = donaldDuck.clone();
+            countDuckula.setLanguage(Language.NA);
+
+            compareList[0] = bamse;
+            compareList[1] = hana;
+            compareList[2] = donaldDuck;
+            compareList[3] = winnieThePooh;
+            compareList[4] = lucien;
+            compareList[5] = countDuckula;
+
+        }
+        catch (CloneNotSupportedException e){
+
+            System.out.println(e.getMessage());
+        }
 
 
-        Animals compareBear1 = new Animals(Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
-        Humans compareFemale1 = new Humans(Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
-        Birds compareBird1 = new Birds(Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
-
-
-
-        compareList[0] = compareBear;
-        compareList[1] = compareFemale;
-        compareList[2] = compareBird;
-        compareList[3] = compareBear1;
-        compareList[4] = compareFemale1;
-        compareList[5] = compareBird1;
-
-
-        for(int i = 0; i < creatures.length; i++){
-            for(int j = 0; j < compareList.length; j++){
-                System.out.println("Creature " + (i + 1) + " equals creature " + (j + 1) + " : " + creatures[i].equals(compareList[j]));
-
+        for (int i = 0; i < creatures.length; i++) {
+            for (int j = 0; j < compareList.length; j++) {
+                System.out.println(creatures[i].getSpecies() +  " equals " + compareList[j].getSpecies() + " : " + creatures[i].equals(compareList[j]));
             }
         }
+
+
+
+
+
 
 
 

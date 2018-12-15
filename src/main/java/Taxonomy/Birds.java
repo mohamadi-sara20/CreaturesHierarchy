@@ -7,16 +7,16 @@ public class Birds extends Creatures{
     public boolean feathers;
     private Diet diet;
 
-    public Birds(Reproduction reproduction, Respiration respiration, Language language, boolean feathers, Diet diet, boolean fly){
-        super(reproduction, respiration, language);
+    public Birds(String species, Reproduction reproduction, Respiration respiration, Language language, boolean feathers, Diet diet, boolean fly){
+        super(species, reproduction, respiration, language);
         this.feathers = feathers;
         this.diet = diet;
         this.fly = fly;
     }
 
-    public void setFly(boolean fly){this.fly = fly;}
-    public void setFeathers(boolean feathers){this.feathers = feathers;}
-    public void setDiet(Diet diet){this.diet = diet;}
+    //public void setFly(boolean fly){this.fly = fly;}
+    //public void setFeathers(boolean feathers){this.feathers = feathers;}
+    //public void setDiet(Diet diet){this.diet = diet;}
 
     public Diet getDiet(){return this.diet;}
     public boolean getFeathers(){return this.feathers;}
@@ -52,5 +52,12 @@ public class Birds extends Creatures{
         result += 31 * result + (getFly() ? 1 : 0);
         return result;
     }
+
+
+    @Override
+    public Birds clone() throws CloneNotSupportedException{
+        return (Birds) super.clone();
+    }
+
 }
 

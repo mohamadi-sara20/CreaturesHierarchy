@@ -7,15 +7,15 @@ public class Animals extends Mammals{
     private Tameness tameness;
 
 
-    public Animals(Reproduction reproduction, Respiration respiration, Language language, Hair hair, Diet diet, Tameness tameness, boolean quadrupedal){
-        super(reproduction, respiration, language, hair);
+    public Animals(String species, Reproduction reproduction, Respiration respiration, Language language, Hair hair, Diet diet, Tameness tameness, boolean quadrupedal){
+        super(species, reproduction, respiration, language, hair);
         this.diet = diet;
         this.tameness = tameness;
         this.quadrupedal = quadrupedal;
     }
 
-    public void setQuadrupedal(boolean quadrupedal){this.quadrupedal = quadrupedal;}
-    public void setDiet(Diet diet){this.diet = diet;}
+    //public void setQuadrupedal(boolean quadrupedal){this.quadrupedal = quadrupedal;}
+    //public void setDiet(Diet diet){this.diet = diet;}
     public void setTameness(Tameness tameness){this.tameness = tameness;}
 
     public Diet getDiet(){return this.diet;}
@@ -50,6 +50,12 @@ public class Animals extends Mammals{
         result += 31 * result + (getDiet() == null ? 0 : getDiet().hashCode());
         result += 31 * result + (getTameness() == null ? 0 : getTameness().hashCode());
         return result;
+    }
+
+
+    @Override
+    public Animals clone() throws CloneNotSupportedException{
+        return (Animals) super.clone();
     }
 
 

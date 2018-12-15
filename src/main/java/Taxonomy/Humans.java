@@ -7,8 +7,8 @@ public class Humans extends Mammals {
     private Gender gender;
     private Age age;
 
-    public Humans(Reproduction reproduction, Respiration respiration, Language language, Hair hair, Age age, Gender gender){
-        super(reproduction, respiration, language, hair);
+    public Humans(String species, Reproduction reproduction, Respiration respiration, Language language, Hair hair, Age age, Gender gender){
+        super(species, reproduction, respiration, language, hair);
         this.gender = gender;
         this.age = age;
     }
@@ -45,6 +45,11 @@ public class Humans extends Mammals {
         result += 31 * result + (getGender() == null ? 0 : getGender().hashCode());
 
         return result;
+    }
+
+    @Override
+    public Humans clone() throws CloneNotSupportedException{
+        return (Humans) super.clone();
     }
 
 
