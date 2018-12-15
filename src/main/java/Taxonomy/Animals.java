@@ -45,11 +45,10 @@ public class Animals extends Mammals{
 
     @Override
     public int hashCode(){
-        int result = 17;
+        int result = super.hashCode();
         result += 31 * result + (getQuadrupedal() ? 1 : 0);
         result += 31 * result + (getDiet() == null ? 0 : getDiet().hashCode());
         result += 31 * result + (getTameness() == null ? 0 : getTameness().hashCode());
-        result += super.hashCode();
         return result;
     }
 

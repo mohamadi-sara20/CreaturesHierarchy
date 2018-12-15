@@ -46,11 +46,10 @@ public class Birds extends Creatures{
 
     @Override
     public int hashCode(){
-        int result = 17;
+        int result = super.hashCode();
         result += 31 * result + (getDiet() == null ? 0 : getDiet().hashCode());
         result += 31 * result + (getFeathers() ? 1 : 0);
         result += 31 * result + (getFly() ? 1 : 0);
-        result += super.hashCode();
         return result;
     }
 }

@@ -40,10 +40,10 @@ public class Humans extends Mammals {
 
     @Override
     public int hashCode(){
-        int result = 17;
+        int result = super.hashCode();
         result += 31 * result + (getAge() == null ? 0 : getAge().hashCode());
         result += 31 * result + (getGender() == null ? 0 : getGender().hashCode());
-        result += super.hashCode();
+
         return result;
     }
 

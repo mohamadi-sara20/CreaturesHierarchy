@@ -27,9 +27,8 @@ public abstract class Mammals extends Creatures {
 
     @Override
     public int hashCode(){
-        int result = 17;
+        int result = super.hashCode();
         result += 31 * result + (getHair() == null ? 0 : getHair().hashCode());
-        result += super.hashCode();
         return result;
 
     }
