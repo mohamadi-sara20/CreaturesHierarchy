@@ -23,8 +23,8 @@ public class TraverseTest {
     public void traverseCreatures(){
         for(Creatures creature: creatures)
             System.out.println(creature);
-
-
-
     }
+
 }
+
+

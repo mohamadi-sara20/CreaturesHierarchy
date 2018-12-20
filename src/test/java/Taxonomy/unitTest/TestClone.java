@@ -2,6 +2,7 @@ package unitTest;
 
 import Taxonomy.*;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -15,7 +16,10 @@ public class TestClone {
     private Creatures creature1;
     private Creatures creature2;
 
-
+    @Before
+    public void initialize(){
+        creature2 = creature1.clone();
+    }
     @Parameterized.Parameters
     public static List<Object[]> getParameters() throws CloneNotSupportedException{
 
@@ -35,30 +39,20 @@ public class TestClone {
         this.creature1 = creature1;
     }
 
+
     @Test
     public void testEquality(){
 
-        creature2 = creature1.clone();
-
         if(creature1.getClass() == Humans.class && creature2.getClass() == Humans.class){
-            Humans human1 = (Humans) creature1;
-            Humans human2 = (Humans) creature2;
-
-            Assert.assertTrue(human1.equals(human2));
-
-
+            Assert.assertTrue(creature1.equals(creature2));
         }
 
         if(creature1.getClass() == Animals.class && creature2.getClass() == Animals.class){
-            Animals animal1 = (Animals) creature1;
-            Animals animal2 = (Animals) creature2;
-           Assert.assertTrue(animal1.equals(animal2));
+           Assert.assertTrue(creature1.equals(creature2));
         }
 
         if(creature1.getClass() == Birds.class && creature2.getClass() == Birds.class){
-            Birds bird1 = (Birds) creature1;
-            Birds bird2 = (Birds) creature2;
-            Assert.assertTrue(bird1.equals(bird2));
+            Assert.assertTrue(creature1.equals(creature2));
         }
 
     }
@@ -71,7 +65,6 @@ public class TestClone {
 
     @Test
     public void testIdentity(){
-        creature2 = creature1.clone();
         Assert.assertSame(creature1.getClass(), creature2.getClass());
         Assert.assertTrue(creature1.getClass().isInstance(creature2) && creature2.getClass().isInstance(creature1));
     }

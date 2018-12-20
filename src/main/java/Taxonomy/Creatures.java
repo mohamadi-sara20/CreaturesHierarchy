@@ -1,6 +1,5 @@
 package Taxonomy;
 
-
 public abstract class Creatures implements Cloneable{
     private Reproduction reproduction;
     private Respiration respiration;
