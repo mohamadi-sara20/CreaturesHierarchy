@@ -3,8 +3,8 @@ package Taxonomy;
 
 public class Birds extends Creatures{
 
-    public boolean fly;
-    public boolean feathers;
+    private boolean fly;
+    private boolean feathers;
     private Diet diet;
 
     public Birds(String species, Reproduction reproduction, Respiration respiration, Language language, boolean feathers, Diet diet, boolean fly){
@@ -29,18 +29,18 @@ public class Birds extends Creatures{
         return representation.append(super.toString()).append("    Diet: ").append(getDiet()).append("    Has feathers: ").append(getFeathers()).append("    Flies: ").append(getFly()).toString();
     }
 
-    @Override
-    public boolean equals(Object object) {
 
-        if(object == this)
+    public boolean equals(Creatures creature) {
+
+        if(!(creature instanceof Birds))
+            return false;
+
+        if(creature == this)
             return true;
 
-        if(object instanceof Birds) {
-          Birds bird = (Birds) object;
-            return (super.equals(object) && this.getFly() == bird.getFly() && this.getFeathers() == bird.getFeathers() && this.getDiet() == bird.getDiet());
-        }
+        Birds bird = (Birds) creature;
+        return (super.equals(bird) && this.getFly() == bird.getFly() && this.getFeathers() == bird.getFeathers() && this.getDiet() == bird.getDiet());
 
-        return false;
     }
 
 

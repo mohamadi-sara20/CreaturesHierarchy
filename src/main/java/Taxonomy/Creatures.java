@@ -34,18 +34,23 @@ public abstract class Creatures implements Cloneable{
         return representation.append("Species: ").append(getSpecies()).append("    Reproduction: ").append(getReproduction()).append( "    Respiration: ").append(getRespiration()).append( " Language:    ").append(getLanguage()).toString();
     }
 
-    @Override
-    public boolean equals(Object object) {
 
-        if (object instanceof Creatures) {
-            Creatures creature = (Creatures) object;
-            return (this.getSpecies().equals(creature.getSpecies()) && this.getRespiration() == creature.getRespiration() && this.getReproduction() == creature.getReproduction() && this.getLanguage() == creature.getLanguage());
-        }
-        return false;
+    public boolean equals(Creatures creature) {
+
+        if (creature == null)
+            return false;
+
+        if(creature == this)
+            return true;
+
+        return (this.getSpecies().equals(creature.getSpecies()) && this.getRespiration() == creature.getRespiration() && this.getReproduction() == creature.getReproduction() && this.getLanguage() == creature.getLanguage());
+
     }
+
 
     @Override
     public int hashCode(){
+
         int result = 17;
         result += 31 * result + (getReproduction() == null ? 0 : getReproduction().hashCode());
         result += 31 * result + (getRespiration() == null ? 0 : getRespiration().hashCode());
@@ -59,7 +64,6 @@ public abstract class Creatures implements Cloneable{
     public Creatures clone() throws CloneNotSupportedException{
         return (Creatures) super.clone();
     }
-
 
 
 }

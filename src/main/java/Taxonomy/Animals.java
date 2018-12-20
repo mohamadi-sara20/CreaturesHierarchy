@@ -29,18 +29,17 @@ public class Animals extends Mammals{
     }
 
 
-    @Override
-    public boolean equals(Object object) {
+    public boolean equals(Creatures creature) {
 
-        if(object == this)
+        if(!(creature instanceof  Animals))
+            return false;
+
+        if(creature == this)
             return true;
 
-        if (object instanceof Animals) {
-            Animals animal = (Animals) object;
-            return (super.equals(animal) && this.getQuadrupedal() == animal.getQuadrupedal() && this.getDiet() == animal.getDiet() && this.getTameness() == animal.getTameness());
-        }
+        Animals animal = (Animals) creature;
+        return (super.equals(animal) && this.getQuadrupedal() == animal.getQuadrupedal() && this.getDiet() == animal.getDiet() && this.getTameness() == animal.getTameness());
 
-        return false;
     }
 
     @Override

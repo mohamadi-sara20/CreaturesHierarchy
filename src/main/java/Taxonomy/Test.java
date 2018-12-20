@@ -7,6 +7,7 @@ public class Test {
         Creatures[] creatures = new Creatures[3];
         Creatures[] compareList = new Creatures[6];
 
+
         Animals yogi = new Animals("Bear", Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
         Humans memol = new Humans("Homo Sapiens", Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
         Birds theUglyDuckling = new Birds("Duck", Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
@@ -32,6 +33,8 @@ public class Test {
             winnieThePooh.setTameness(Tameness.DOMESTIC);
             winnieThePooh.setLanguage(Language.UNLIMITED);
 
+            System.out.println(yogi.equals(bamse));
+
             Humans lucien = hana.clone();
             lucien.setAge(Age.ADOLESCENT);
             lucien.setGender(Gender.MALE);
@@ -53,19 +56,12 @@ public class Test {
         }
 
 
+
         for (int i = 0; i < creatures.length; i++) {
             for (int j = 0; j < compareList.length; j++) {
                 System.out.println(creatures[i].getSpecies() +  " equals " + compareList[j].getSpecies() + " : " + creatures[i].equals(compareList[j]));
             }
         }
-
-
-
-
-
-
-
-
 
     }
 }

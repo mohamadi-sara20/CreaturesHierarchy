@@ -19,9 +19,16 @@ public abstract class Mammals extends Creatures {
         return representation.append(super.toString()).append("    Hair:").append(getHair()).toString();
     }
 
-    @Override
-    public boolean equals(Object object) {
-        return (super.equals(object) && this.getHair() == ((Mammals) object).getHair());
+    public boolean equals(Creatures creature) {
+
+        if(!(creature instanceof Mammals))
+            return false;
+
+        if(creature == this)
+            return  true;
+
+        return (super.equals(creature) && this.getHair() == ((Mammals) creature).getHair());
+
     }
 
 
@@ -30,7 +37,6 @@ public abstract class Mammals extends Creatures {
         int result = super.hashCode();
         result += 31 * result + (getHair() == null ? 0 : getHair().hashCode());
         return result;
-
     }
 
     @Override
