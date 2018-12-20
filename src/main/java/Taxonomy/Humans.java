@@ -46,7 +46,7 @@ public class Humans extends Mammals {
     }
 
     @Override
-    public Humans clone() throws CloneNotSupportedException{
+    public Humans clone(){
         return (Humans) super.clone();
     }
 

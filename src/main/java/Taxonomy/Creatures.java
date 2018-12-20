@@ -61,8 +61,16 @@ public abstract class Creatures implements Cloneable{
 
 
     @Override
-    public Creatures clone() throws CloneNotSupportedException{
-        return (Creatures) super.clone();
+    public Creatures clone(){
+        try {
+
+            return (Creatures) super.clone();
+        }
+
+        catch (CloneNotSupportedException e) {
+            System.err.println("Clone failed! Please implement Cloneable! ");
+            return null;
+        }
     }
 
 

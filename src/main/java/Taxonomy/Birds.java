@@ -55,7 +55,7 @@ public class Birds extends Creatures{
 
 
     @Override
-    public Birds clone() throws CloneNotSupportedException{
+    public Birds clone() {
         return (Birds) super.clone();
     }
 

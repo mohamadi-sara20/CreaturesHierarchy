@@ -53,7 +53,7 @@ public class Animals extends Mammals{
 
 
     @Override
-    public Animals clone() throws CloneNotSupportedException{
+    public Animals clone(){
         return (Animals) super.clone();
     }
 

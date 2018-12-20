@@ -40,8 +40,8 @@ public abstract class Mammals extends Creatures {
     }
 
     @Override
-    public Mammals clone() throws CloneNotSupportedException{
-        return (Mammals) super.clone();
+    public Mammals clone() {
+            return (Mammals) super.clone();
     }
 
 
