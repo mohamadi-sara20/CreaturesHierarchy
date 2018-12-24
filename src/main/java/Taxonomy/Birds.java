@@ -75,21 +75,27 @@ public class Birds extends Creatures{
             return c;
 
         else {
-                                                                    //look for inequality in getFly
-            if(getFly() && !bird.getFly())
-                return 1;
-            if(!getFly()&& bird.getFly())
-                return -1;
+
+            if ((Boolean.compare(getFly(), bird.getFly())) != 0)
+                return Boolean.compare(getFly(), bird.getFly());
+            //look for inequality in getFly
+            //if(getFly() && !bird.getFly())
+            //    return 1;
+            //if(!getFly() && bird.getFly())
+            //    return -1;
                                                                     //getFly() are similar. Look for ineqaulity in diet.
             if(getDiet().compareTo(bird.getDiet()) > 0)
                 return 1;
             if(getDiet().compareTo(bird.getDiet()) < 0)
                 return -1;
-                                                                    //Diets also similar. Look for inequality in feathers.
-            if(getFeathers() && !bird.getFeathers())
-                return 1;
-            if(!getFeathers() && bird.getFeathers())
-                return -1;
+                                                                   //Diets also similar. Look for inequality in feathers.
+            if(Boolean.compare(getFeathers(), bird.getFeathers()) != 0)
+                return Boolean.compare(getFeathers(), bird.getFeathers());
+
+            //if(getFeathers() && !bird.getFeathers())
+            //    return 1;
+            //if(!getFeathers() && bird.getFeathers())
+            //    return -1;
                                                                     //No inequalities found. Return 0.
             return 0;
 

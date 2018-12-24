@@ -84,10 +84,13 @@ public class Animals extends Mammals{
             if(this.getDiet().compareTo(animal.getDiet()) < 0)
                 return -1;
 
-            if(this.getQuadrupedal() && !animal.getQuadrupedal())           //Diet the same. Find inequality in quadrupedality.
-                return 1;
-            if(!this.getQuadrupedal() && animal.getQuadrupedal())
-                return -1;
+            if(Boolean.compare(getQuadrupedal(), animal.getQuadrupedal()) != 0)
+                return Boolean.compare(getQuadrupedal(), animal.getQuadrupedal());
+            
+            //if(this.getQuadrupedal() && !animal.getQuadrupedal())           //Diet the same. Find inequality in quadrupedality.
+            //    return 1;
+            //if(!this.getQuadrupedal() && animal.getQuadrupedal())
+            //    return -1;
 
             return 0;                                                       //No inequalities found. Return 0.
         }
