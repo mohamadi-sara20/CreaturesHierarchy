@@ -30,9 +30,29 @@ public class test {
         Humans human = new Humans("Homo Sapiens", Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.ADOLESCENT, Gender.FEMALE);
         Birds bird = new Birds("Duck", Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.CARNIVOROUS, true);
 
-        System.out.println(yogi.compareTo(bamse));
-        System.out.println(yogi.compareTo(winnieThePooh));
-        System.out.println(yogi.compareTo(bear));
+       ArrayList<Creatures> arrayList = new ArrayList<>();
+
+        arrayList.add(yogi);
+        arrayList.add(memol);
+        arrayList.add(bamse);
+        arrayList.add(nell);
+        arrayList.add(theUglyDuckling);
+        arrayList.add(donaldDuck);
+        arrayList.add(anette);
+        arrayList.add(countDokula);
+        arrayList.add(bear);
+        arrayList.add(human);
+        arrayList.add(bird);
+        arrayList.add(winnieThePooh);
+
+
+        Collections.sort(arrayList);
+
+        for(Creatures creatures: arrayList)
+            System.out.println(creatures);
+
+
     }
+
 }
 
