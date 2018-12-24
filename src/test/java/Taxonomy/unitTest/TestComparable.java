@@ -95,5 +95,36 @@ public class TestComparable {
         Assert.assertEquals(0, donaldDuck.compareTo(countDokula));
     }
 
+    @Test
+    public void testConsistency(){
+
+        Assert.assertEquals(0, yogi.compareTo(bamse));
+        Assert.assertEquals(0, yogi.compareTo(winnieThePooh));
+        Assert.assertEquals(0, bamse.compareTo(winnieThePooh));
+
+        Assert.assertEquals(0, memol.compareTo(nell));
+        Assert.assertEquals(0, memol.compareTo(anette));
+        Assert.assertEquals(0, nell.compareTo(anette));
+
+        Assert.assertEquals(0, theUglyDuckling.compareTo(countDokula));
+        Assert.assertEquals(0, theUglyDuckling.compareTo(donaldDuck));
+        Assert.assertEquals(0, donaldDuck.compareTo(countDokula));
+
+    }
+
+    //Kind of redundant, but we'll put this as an example.
+    @Test(expected = NullPointerException.class)
+    public void testNull(){
+        Assert.assertNull(yogi.compareTo(null));
+        Assert.assertNull(memol.compareTo(null));
+        Assert.assertNull(bird.compareTo(null));
+        bamse = null;
+        Assert.assertNull(bamse.compareTo(yogi));
+        Assert.assertNull(bamse.compareTo(memol));
+        Assert.assertNull(bamse.compareTo(bird));
+        Assert.assertNull(bamse.compareTo(null));
+        Assert.assertNull(bamse.compareTo(bamse));
+        
+    }
 
 }
