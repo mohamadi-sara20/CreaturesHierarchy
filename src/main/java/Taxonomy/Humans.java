@@ -11,6 +11,14 @@ public class Humans extends Mammals {
         this.age = age;
     }
 
+    public Humans(Humans human){
+        super(human);
+        this.gender = human.getGender();
+        this.age = human.getAge();
+
+
+    }
+
     public void setGender(Gender gender){this.gender = gender;}
     public void setAge(Age age){this.age = age;}
 

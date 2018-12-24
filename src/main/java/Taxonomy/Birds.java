@@ -14,6 +14,13 @@ public class Birds extends Creatures{
         this.fly = fly;
     }
 
+    public Birds(Birds bird){
+        super(bird);
+        this.fly = bird.getFly();
+        this.feathers = bird.getFeathers();
+        this.diet = bird.getDiet();
+    }
+
     //public void setFly(boolean fly){this.fly = fly;}
     //public void setFeathers(boolean feathers){this.feathers = feathers;}
     //public void setDiet(Diet diet){this.diet = diet;}

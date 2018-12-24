@@ -16,6 +16,15 @@ public abstract class Creatures implements Cloneable, Comparable<Creatures>{
         this.language = language;
     }
 
+
+    public Creatures(Creatures creature){
+        //this(creature.getSpecies(), creature.getReproduction(), creature.getRespiration(), creature.getLanguage());
+        this.species = creature.getSpecies();
+        this.reproduction = creature.getReproduction();
+        this.respiration = creature.getRespiration();
+        this.language = creature.getLanguage();
+    }
+
     //public void setReproduction(Reproduction reproduction){this.reproduction = reproduction;}
     //public void setRespiration(Respiration respiration){this.respiration = respiration;}
     public void setLanguage(Language language){this.language = language;}

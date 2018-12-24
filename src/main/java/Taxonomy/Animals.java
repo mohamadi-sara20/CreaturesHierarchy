@@ -14,6 +14,13 @@ public class Animals extends Mammals{
         this.quadrupedal = quadrupedal;
     }
 
+    public Animals(Animals animal){
+        super(animal);
+        this.diet = animal.getDiet();
+        this.tameness = animal.getTameness();
+        this.quadrupedal = animal.getQuadrupedal();
+    }
+
     //public void setQuadrupedal(boolean quadrupedal){this.quadrupedal = quadrupedal;}
     //public void setDiet(Diet diet){this.diet = diet;}
     public void setTameness(Tameness tameness){this.tameness = tameness;}

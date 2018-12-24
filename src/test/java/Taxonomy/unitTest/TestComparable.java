@@ -128,6 +128,6 @@ public class TestComparable {
         Assert.assertNull(bamse.compareTo(bamse));
 
     }
- 
+
 
 }

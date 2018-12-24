@@ -8,6 +8,12 @@ public abstract class Mammals extends Creatures {
         this.hair = hair;
     }
 
+
+    public Mammals(Mammals mammal){
+        super(mammal);
+        this.hair = mammal.getHair();
+    }
+
     public void setHair(Hair hair) {
         this.hair = hair;
     }
