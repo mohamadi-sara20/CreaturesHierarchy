@@ -97,7 +97,7 @@ public abstract class Creatures implements Cloneable, Comparable<Creatures>{
         if((this.getLanguage().compareTo(creature.getLanguage())) > 0)
             return 1;
         if((this.getLanguage().compareTo(creature.getLanguage())) < 0)
-            return 01;
+            return -1;
 
         return 0;
 

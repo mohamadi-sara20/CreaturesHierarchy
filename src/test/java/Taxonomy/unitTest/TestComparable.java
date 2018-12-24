@@ -42,25 +42,7 @@ public class TestComparable {
     }
 
 
-    @Test
-    public void testNormalCases(){
-        Assert.assertEquals(0, yogi.compareTo(bamse));
-        Assert.assertEquals(0, yogi.compareTo(winnieThePooh));
-        Assert.assertEquals(0, memol.compareTo(nell));
-        Assert.assertEquals(0, memol.compareTo(anette));
-        Assert.assertEquals(0, theUglyDuckling.compareTo(donaldDuck));
-        Assert.assertEquals(0, theUglyDuckling.compareTo(countDokula));
-        Assert.assertEquals(1, yogi.compareTo(bear));
-        Assert.assertEquals(1,  bamse.compareTo(bear));
-        Assert.assertEquals(1, winnieThePooh.compareTo(bear));
-        Assert.assertEquals(1, memol.compareTo(human));
-        Assert.assertEquals(1, nell.compareTo(human));
-        Assert.assertEquals(1, anette.compareTo(human));
-        Assert.assertEquals(1, theUglyDuckling.compareTo(bird));
-        Assert.assertEquals(1, donaldDuck.compareTo(bird));
-        Assert.assertEquals(1, countDokula.compareTo(bird));
-
-    }
+   
 
     @Test
     public void testReflexivity(){
