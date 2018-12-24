@@ -59,5 +59,38 @@ public class Birds extends Creatures{
         return (Birds) super.clone();
     }
 
+
+
+    public int compareTo(Birds bird){
+        int c = super.compareTo(bird);
+
+        if(c != 0)                                                  //if super features are not equal, return the result.
+            return c;
+
+        else {
+                                                                    //look for inequality in getFly
+            if(this.getFly() && !bird.getFly())
+                return 1;
+            if(!this.getFly()&& bird.getFly())
+                return -1;
+                                                                    //getFly() are similar. Look for ineqaulity in diet.
+            if(this.getDiet().compareTo(bird.getDiet()) > 0)
+                return 1;
+            if(this.getDiet().compareTo(bird.getDiet()) < 0)
+                return -1;
+                                                                    //Diets also similar. Look for inequality in feathers.
+            if(this.getFeathers() && !bird.getFeathers())
+                return 1;
+            if(!this.getFeathers() && bird.getFeathers())
+                return -1;
+                                                                    //No inequalities found. Return 0.
+            return 0;
+
+
+        }
+
+
+    }
+
 }
 

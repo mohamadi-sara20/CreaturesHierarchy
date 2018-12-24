@@ -58,4 +58,33 @@ public class Animals extends Mammals{
     }
 
 
+    public int compareTo(Animals animal){
+
+        int c = super.compareTo(animal);
+
+        if(c != 0)                                                          //if super features are not equal, return.
+            return c;
+
+        else {                                                              //if super features are equal:
+
+            if (this.getTameness().compareTo(animal.getTameness()) > 0)     //Find inequality in Tameness
+                return 1;
+            if (this.getTameness().compareTo(animal.getTameness()) < 0)
+                return -1;
+                                                                            //Tameness the same. Find inequality in diet.
+            if(this.getDiet().compareTo(animal.getDiet()) > 0)
+                return 1;
+            if(this.getDiet().compareTo(animal.getDiet()) < 0)
+                return -1;
+
+            if(this.getQuadrupedal() && !animal.getQuadrupedal())           //Diet the same. Find inequality in quadrupedality.
+                return 1;
+            if(!this.getQuadrupedal() && animal.getQuadrupedal())
+                return -1;
+
+            return 0;                                                       //No inequalities found. Return 0.
+        }
+
+    }
+
 }

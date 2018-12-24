@@ -51,4 +51,24 @@ public class Humans extends Mammals {
     }
 
 
+    public int compareTo(Humans human){
+        int c = super.compareTo(human);
+        if(c != 0)
+            return c;
+        else {                                                              //equal in superclass features
+                                                                            //now look for inequality in Gender
+            if(this.getGender().compareTo(human.getGender()) > 0)
+                return 1;
+            if(this.getGender().compareTo(human.getGender()) < 0)
+                return -1;
+                                                                            //If genders are equal, find inequality in Age.
+            if(this.getAge().compareTo(human.getAge()) > 0)
+                return 1;
+            if(this.getAge().compareTo(human.getAge()) < 0)
+                return -1;
+                                                                            //Age also equal. So the two objects are equal.
+            return 0;
+        }
+    }
+
 }

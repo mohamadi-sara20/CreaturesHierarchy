@@ -44,6 +44,18 @@ public abstract class Mammals extends Creatures {
             return (Mammals) super.clone();
     }
 
+    public int compareTo(Mammals mammal){
+        int c = super.compareTo(mammal);
+        if(c != 0)
+            return c;
+        else{
+            if(this.getHair().compareTo(mammal.getHair()) > 0)     //not equal in hair
+                return 1;
+            if(this.getHair().compareTo(mammal.getHair()) < 0)     //not equal in hair
+                return -1;
+            return 0;                                               //hair also equal, so return 0.
+        }
+    }
 
 }
 

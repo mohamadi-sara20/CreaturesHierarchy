@@ -1,6 +1,7 @@
 package Taxonomy;
 
-public abstract class Creatures implements Cloneable{
+
+public abstract class Creatures implements Cloneable, Comparable<Creatures>{
     private Reproduction reproduction;
     private Respiration respiration;
     private Language language;
@@ -70,6 +71,36 @@ public abstract class Creatures implements Cloneable{
             System.err.println("Clone failed! Please implement Cloneable! ");
             return null;
         }
+    }
+
+
+    public int compareTo(Creatures creature){
+
+        if(this == creature)
+            return 0;
+
+        if((this.getSpecies().compareTo(creature.getSpecies())) > 0)
+            return 1;
+        if((this.getSpecies().compareTo(creature.getSpecies())) < 0)
+            return -1;
+
+        if((this.getReproduction().compareTo(creature.getReproduction())) > 0)
+            return 1;
+        if((this.getReproduction().compareTo(creature.getReproduction())) < 0)
+            return -1;
+
+        if((this.getRespiration().compareTo(creature.getRespiration())) > 0)
+            return 1;
+        if((this.getRespiration().compareTo(creature.getRespiration())) < 0)
+            return -1;
+
+        if((this.getLanguage().compareTo(creature.getLanguage())) > 0)
+            return 1;
+        if((this.getLanguage().compareTo(creature.getLanguage())) < 0)
+            return 01;
+
+        return 0;
+
     }
 
 
