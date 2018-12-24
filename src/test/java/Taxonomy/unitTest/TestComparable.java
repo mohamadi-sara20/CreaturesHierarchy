@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class TestComparable {
     Animals bamse, winnieThePooh, bear, yogi;
     Humans memol, nell, anette, human;
@@ -124,7 +126,8 @@ public class TestComparable {
         Assert.assertNull(bamse.compareTo(bird));
         Assert.assertNull(bamse.compareTo(null));
         Assert.assertNull(bamse.compareTo(bamse));
-        
+
     }
+ 
 
 }
