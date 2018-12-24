@@ -1,4 +1,4 @@
 package Taxonomy;
 
-public enum Language {NA, LIMITED, UNLIMITED}
+public enum Language {LIMITED, UNLIMITED, NA}
 

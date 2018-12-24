@@ -43,7 +43,7 @@ public class TestComparable {
 
     @Test
     public void normalCases(){
-        Assert.assertEquals(-1, yogi.compareTo(bear));
+        Assert.assertEquals(1, yogi.compareTo(bear));
         Assert.assertEquals(1, memol.compareTo(human));
         Assert.assertEquals(1, theUglyDuckling.compareTo(bird));
 
