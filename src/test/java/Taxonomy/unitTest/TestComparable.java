@@ -46,6 +46,9 @@ public class TestComparable {
         Assert.assertEquals(1, yogi.compareTo(bear));
         Assert.assertEquals(1, memol.compareTo(human));
         Assert.assertEquals(1, theUglyDuckling.compareTo(bird));
+        Assert.assertEquals(-1, bear.compareTo(yogi));
+        Assert.assertEquals(-1, human.compareTo(memol));
+        Assert.assertEquals(-1, bird.compareTo(theUglyDuckling));
 
         Assert.assertEquals(0, yogi.compareTo(bamse));
         Assert.assertEquals(0, yogi.compareTo(winnieThePooh));
