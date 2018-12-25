@@ -13,6 +13,20 @@ public class test {
         Humans memol = new Humans("Homo Sapiens", Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
         Birds theUglyDuckling = new Birds("Duck", Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
 
+
+        Animals a = new Animals(yogi);
+        Humans h = new Humans(memol);
+        Birds b = new Birds(theUglyDuckling);
+
+        System.out.println(yogi.equals(a));
+        a.setTameness(Tameness.DOMESTIC);
+        System.out.println(yogi.equals(a));
+        System.out.println(yogi.getTameness());
+        System.out.println(memol.equals(h));
+        System.out.println(theUglyDuckling.equals(b));
+        System.out.printf("%s%n%s%n", yogi, a);
+        System.out.printf("%s%n%s%n", memol, h);
+        System.out.printf("%s%n%s", theUglyDuckling, b);
         //similar for symmetry test
         Animals bamse = new Animals("Bear", Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
         Humans nell = new Humans("Homo Sapiens", Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
@@ -48,8 +62,6 @@ public class test {
 
         Collections.sort(arrayList);
 
-        for(Creatures creatures: arrayList)
-            System.out.println(creatures);
 
 
     }

@@ -4,7 +4,7 @@ import Taxonomy.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TraverseTest {
+public class TestTraverse {
     private Creatures[] creatures = new Creatures[3];
     @Before
     public void prepareCreatures() {
