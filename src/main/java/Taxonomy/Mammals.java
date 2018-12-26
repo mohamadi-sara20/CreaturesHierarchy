@@ -9,6 +9,7 @@ public abstract class Mammals extends Creatures {
     }
 
 
+
     public Mammals(Mammals mammal){
         super(mammal);
         this.hair = mammal.getHair();
@@ -36,7 +37,6 @@ public abstract class Mammals extends Creatures {
         return (super.equals(creature) && this.getHair() == ((Mammals) creature).getHair());
 
     }
-
 
     @Override
     public int hashCode(){
