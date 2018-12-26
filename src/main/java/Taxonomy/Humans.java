@@ -79,4 +79,26 @@ public class Humans extends Mammals {
         }
     }
 
+    @Override
+    public Humans shallowCopy(){
+            return new Humans(this.getSpecies(), this.getReproduction(), this.getRespiration(), this.getLanguage(), this.getHair(), this.getAge(),this.getGender());
+    }
+
+    @Override
+    public Humans shallowCopyFrom(Creatures c){
+        Humans human = (Humans) c;
+        return new Humans(human.getSpecies(), human.getReproduction(), human.getRespiration(), human.getLanguage(), human.getHair(), human.getAge(),human.getGender());
+    }
+
+    @Override
+    public Humans deepCopy(){
+        return new Humans(this);
+    }
+
+    @Override
+    public Humans deepCopyFrom(Creatures creature){
+        return new Humans((Humans) creature);
+    }
+
+
 }

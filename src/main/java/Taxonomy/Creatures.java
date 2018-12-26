@@ -1,7 +1,7 @@
 package Taxonomy;
 
 
-public abstract class Creatures implements Cloneable, Comparable<Creatures>, ShallowCopy{
+public abstract class Creatures implements Cloneable, Comparable<Creatures>, ShallowCopy<Creatures>, DeepCopy<Creatures>{
     private Reproduction reproduction;
     private Respiration respiration;
     private Language language;
@@ -112,9 +112,6 @@ public abstract class Creatures implements Cloneable, Comparable<Creatures>, Sha
 
     }
 
-
-    @Override
-    public Creatures shallowCopy(){}
 
 }
 

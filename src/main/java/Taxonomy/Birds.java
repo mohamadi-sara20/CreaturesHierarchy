@@ -1,7 +1,9 @@
 package Taxonomy;
 
 
-public class Birds extends Creatures{
+import jdk.nashorn.internal.ir.annotations.Ignore;
+
+public class Birds extends Creatures {
 
     private boolean fly;
     private boolean feathers;
@@ -105,6 +107,27 @@ public class Birds extends Creatures{
 
     }
 
+    @Override
+    public Birds shallowCopy(){
+        return new Birds(this.getSpecies(), this.getReproduction(), this.getRespiration(), this.getLanguage(), ((Birds)this).getFeathers(), ((Birds)this).getDiet(), ((Birds)this).getFly());
+
+    }
+
+    @Override
+    public Birds shallowCopyFrom(Creatures e){
+        Birds bird = (Birds) e;
+        return new Birds(bird.getSpecies(), bird.getReproduction(), bird.getRespiration(), bird.getLanguage(), bird.getFeathers(), bird.getDiet(), bird.getFly());
+    }
+
+    @Override
+    public Birds deepCopy(){
+        return new Birds(this);
+    }
+
+    @Override
+    public Birds deepCopyFrom(Creatures creature){
+        return new Birds((Birds) creature);
+    }
 
 
 }

@@ -1,8 +1,9 @@
 package Taxonomy;
 
-public interface DeepCopy<T> {
-    public Creatures deepCopy();
-    public Creatures deepCopyFrom(T obj);
+public interface DeepCopy<T extends Creatures> {
+    public T deepCopy();
+    public T deepCopyFrom(T obj);
+
 
 
 }

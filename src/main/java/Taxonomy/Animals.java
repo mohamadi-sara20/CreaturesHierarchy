@@ -97,4 +97,29 @@ public class Animals extends Mammals{
 
     }
 
+    @Override
+    public Animals shallowCopy(){
+        return new Animals(this.getSpecies(), this.getReproduction(), this.getRespiration(), this.getLanguage(), ((Animals)this).getHair(), ((Animals)this).getDiet(), ((Animals)this).getTameness(), ((Animals)this).getQuadrupedal());
+
+    }
+
+    @Override
+    public Animals shallowCopyFrom(Creatures c){
+        Animals animal = (Animals) c;
+        return new Animals(animal.getSpecies(), animal.getReproduction(), animal.getRespiration(), animal.getLanguage(), animal.getHair(), animal.getDiet(), ((Animals)this).getTameness(), animal.getQuadrupedal());
+    }
+
+
+    @Override
+    public Animals deepCopy(){
+        return new Animals(this);
+    }
+
+    @Override
+    public Animals deepCopyFrom(Creatures creature){
+        return new Animals((Animals) creature);
+
+    }
+
+
 }
