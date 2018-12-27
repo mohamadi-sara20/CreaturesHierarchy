@@ -1,7 +1,7 @@
 package Taxonomy;
 
 
-public abstract class Creatures implements Cloneable, Comparable<Creatures>, ShallowCopy<Creatures>, DeepCopy<Creatures>{
+public abstract class Creatures implements Cloneable, Comparable<Creatures>, ShallowCopy<Creatures>{
     private Reproduction reproduction;
     private Respiration respiration;
     private Language language;
@@ -17,12 +17,14 @@ public abstract class Creatures implements Cloneable, Comparable<Creatures>, Sha
     }
 
 
+    //Copy constructor
     public Creatures(Creatures creature){
-        //this(creature.getSpecies(), creature.getReproduction(), creature.getRespiration(), creature.getLanguage());
+        super();
         this.species = creature.getSpecies();
         this.reproduction = creature.getReproduction();
         this.respiration = creature.getRespiration();
         this.language = creature.getLanguage();
+
     }
 
     //public void setReproduction(Reproduction reproduction){this.reproduction = reproduction;}
@@ -110,6 +112,18 @@ public abstract class Creatures implements Cloneable, Comparable<Creatures>, Sha
 
         return 0;
 
+    }
+
+
+    @Override
+    public Creatures shallowCopy(){
+        return this;
+    }
+
+    @Override
+    public Creatures shallowCopyFrom(Creatures e){
+        e = this;
+        return e;
     }
 
 

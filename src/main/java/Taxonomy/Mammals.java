@@ -63,6 +63,14 @@ public abstract class Mammals extends Creatures {
         }
     }
 
+
+    @Override
+    public Mammals shallowCopy(){
+        Mammals mammal = (Mammals) super.shallowCopy();
+        mammal.setHair(this.getHair());
+        return  mammal;
+    }
+
 }
 
 

@@ -81,16 +81,21 @@ public class Humans extends Mammals {
 
     @Override
     public Humans shallowCopy(){
-            return new Humans(this.getSpecies(), this.getReproduction(), this.getRespiration(), this.getLanguage(), this.getHair(), this.getAge(),this.getGender());
+        Humans human = (Humans) super.shallowCopy();
+        human.age = this.getAge();
+        human.gender = this.getGender();
+        return human;
     }
 
     @Override
     public Humans shallowCopyFrom(Creatures c){
-        Humans human = (Humans) c;
-        return new Humans(human.getSpecies(), human.getReproduction(), human.getRespiration(), human.getLanguage(), human.getHair(), human.getAge(),human.getGender());
+        c = super.shallowCopyFrom(c);
+        ((Humans)c).age = this.getAge();
+        ((Humans)c).gender = this.getGender();
+        return (Humans) c;
     }
 
-    @Override
+    /*@Override
     public Humans deepCopy(){
         return new Humans(this);
     }
@@ -99,6 +104,7 @@ public class Humans extends Mammals {
     public Humans deepCopyFrom(Creatures creature){
         return new Humans((Humans) creature);
     }
+    */
 
 
 }

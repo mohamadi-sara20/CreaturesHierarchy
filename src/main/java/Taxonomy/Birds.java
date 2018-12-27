@@ -1,7 +1,7 @@
 package Taxonomy;
 
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
+import java.util.ArrayList;
 
 public class Birds extends Creatures {
 
@@ -80,11 +80,6 @@ public class Birds extends Creatures {
 
             if ((Boolean.compare(getFly(), bird.getFly())) != 0)
                 return Boolean.compare(getFly(), bird.getFly());
-            //look for inequality in getFly
-            //if(getFly() && !bird.getFly())
-            //    return 1;
-            //if(!getFly() && bird.getFly())
-            //    return -1;
                                                                     //getFly() are similar. Look for ineqaulity in diet.
             if(getDiet().compareTo(bird.getDiet()) > 0)
                 return 1;
@@ -94,41 +89,43 @@ public class Birds extends Creatures {
             if(Boolean.compare(getFeathers(), bird.getFeathers()) != 0)
                 return Boolean.compare(getFeathers(), bird.getFeathers());
 
-            //if(getFeathers() && !bird.getFeathers())
-            //    return 1;
-            //if(!getFeathers() && bird.getFeathers())
-            //    return -1;
                                                                     //No inequalities found. Return 0.
             return 0;
-
-
         }
-
-
     }
+
 
     @Override
     public Birds shallowCopy(){
-        return new Birds(this.getSpecies(), this.getReproduction(), this.getRespiration(), this.getLanguage(), ((Birds)this).getFeathers(), ((Birds)this).getDiet(), ((Birds)this).getFly());
-
+        Birds bird = (Birds) super.shallowCopy();
+        bird.feathers = this.getFeathers();
+        bird.diet = this.getDiet();
+        bird.fly = this.getFly();
+        return bird;
     }
+
 
     @Override
     public Birds shallowCopyFrom(Creatures e){
-        Birds bird = (Birds) e;
-        return new Birds(bird.getSpecies(), bird.getReproduction(), bird.getRespiration(), bird.getLanguage(), bird.getFeathers(), bird.getDiet(), bird.getFly());
+        e = super.shallowCopyFrom(e);
+        ((Birds) e).feathers = this.getFeathers();
+        ((Birds) e).diet = this.getDiet();
+        ((Birds) e).fly = this.getFly();
+        return (Birds) e;
     }
 
+
+    /*
     @Override
     public Birds deepCopy(){
         return new Birds(this);
     }
 
-    @Override
+
     public Birds deepCopyFrom(Creatures creature){
         return new Birds((Birds) creature);
     }
 
-
+*/
 }
 
