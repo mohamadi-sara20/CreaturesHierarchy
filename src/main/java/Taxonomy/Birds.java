@@ -1,8 +1,5 @@
 package Taxonomy;
 
-
-import java.util.ArrayList;
-
 public class Birds extends Creatures {
 
     private boolean fly;
@@ -15,6 +12,7 @@ public class Birds extends Creatures {
         this.diet = diet;
         this.fly = fly;
     }
+
 
     public Birds(Birds bird){
         super(bird);
@@ -97,35 +95,35 @@ public class Birds extends Creatures {
 
     @Override
     public Birds shallowCopy(){
-        Birds bird = (Birds) super.shallowCopy();
-        bird.feathers = this.getFeathers();
-        bird.diet = this.getDiet();
-        bird.fly = this.getFly();
-        return bird;
+        return new Birds((Birds) super.shallowCopy());
     }
 
 
     @Override
-    public Birds shallowCopyFrom(Creatures e){
-        e = super.shallowCopyFrom(e);
-        ((Birds) e).feathers = this.getFeathers();
-        ((Birds) e).diet = this.getDiet();
-        ((Birds) e).fly = this.getFly();
-        return (Birds) e;
+    public void shallowCopyFrom(Creatures creature){
+        super.shallowCopyFrom(creature);
+        this.feathers = ((Birds)creature).getFeathers();
+        this.fly = ((Birds)creature).getFly();
+        this.diet = ((Birds)creature).getDiet();
     }
 
 
-    /*
+
+    //Which constructor to call?
     @Override
     public Birds deepCopy(){
-        return new Birds(this);
+        return new Birds((Birds)super.deepCopy());
+    }
+
+    @Override
+    public void deepCopyFrom(Creatures creature){
+        super.deepCopyFrom(creature);
+        this.feathers = ((Birds)creature).getFeathers();
+        this.fly = ((Birds)creature).getFly();
+        this.diet =((Birds)creature).getDiet();
+
     }
 
 
-    public Birds deepCopyFrom(Creatures creature){
-        return new Birds((Birds) creature);
-    }
-
-*/
 }
 

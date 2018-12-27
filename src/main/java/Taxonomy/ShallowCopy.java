@@ -1,7 +1,8 @@
 package Taxonomy;
 
-public interface ShallowCopy <E extends Creatures>{
+public interface ShallowCopy <T>{
 
-    public E shallowCopy();
-    public E shallowCopyFrom(E obj );
+    public T shallowCopy();
+    public void shallowCopyFrom(T obj);
+
 }

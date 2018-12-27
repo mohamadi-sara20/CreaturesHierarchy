@@ -9,7 +9,6 @@ public abstract class Mammals extends Creatures {
     }
 
 
-
     public Mammals(Mammals mammal){
         super(mammal);
         this.hair = mammal.getHair();
@@ -66,9 +65,24 @@ public abstract class Mammals extends Creatures {
 
     @Override
     public Mammals shallowCopy(){
-        Mammals mammal = (Mammals) super.shallowCopy();
-        mammal.setHair(this.getHair());
-        return  mammal;
+        return (Mammals) super.shallowCopy();
+    }
+
+    @Override
+    public void shallowCopyFrom(Creatures creature){
+        super.shallowCopyFrom(creature);
+        this.hair = ((Mammals)creature).getHair();
+    }
+
+    @Override
+    public Mammals deepCopy(){
+        return (Mammals)super.deepCopy();
+    }
+
+    @Override
+    public void deepCopyFrom(Creatures creature){
+        super.deepCopyFrom(creature);
+        this.hair = ((Mammals)creature).getHair();
     }
 
 }

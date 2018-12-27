@@ -1,12 +1,11 @@
 package Taxonomy;
 
+public abstract class Creatures implements Cloneable, Comparable<Creatures>, ShallowCopy<Creatures>, DeepCopy<Creatures>{
 
-public abstract class Creatures implements Cloneable, Comparable<Creatures>, ShallowCopy<Creatures>{
     private Reproduction reproduction;
     private Respiration respiration;
     private Language language;
     private String species;
-
 
     public Creatures(String species, Reproduction reproduction, Respiration respiration, Language language){
 
@@ -16,14 +15,13 @@ public abstract class Creatures implements Cloneable, Comparable<Creatures>, Sha
         this.language = language;
     }
 
-
     //Copy constructor
     public Creatures(Creatures creature){
-        super();
         this.species = creature.getSpecies();
         this.reproduction = creature.getReproduction();
         this.respiration = creature.getRespiration();
         this.language = creature.getLanguage();
+
 
     }
 
@@ -120,10 +118,37 @@ public abstract class Creatures implements Cloneable, Comparable<Creatures>, Sha
         return this;
     }
 
+
     @Override
-    public Creatures shallowCopyFrom(Creatures e){
-        e = this;
-        return e;
+    public void shallowCopyFrom(Creatures creature){
+        this.species = creature.getSpecies();
+        this.reproduction = creature.getReproduction();
+        this.respiration = creature.getRespiration();
+        this.language = creature.getLanguage();
+
+    }
+
+
+    @Override
+    public Creatures deepCopy(){
+        this.species = new String(this.getSpecies());
+        //try {
+        //   this.reproduction = this.reproduction.getClass().newInstance();
+        //}
+        //catch (Exception ex) {
+        //}
+        //this.respiration = this.getRespiration();
+        //this.language = this.getLanguage();
+        return this;
+    }
+
+
+    @Override
+    public void deepCopyFrom(Creatures creature){
+        this.species = new String(creature.getSpecies());
+        this.reproduction = creature.getReproduction();
+        this.respiration = creature.getRespiration();
+        this.language = creature.getLanguage();
     }
 
 

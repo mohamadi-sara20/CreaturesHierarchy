@@ -1,15 +1,20 @@
 package Taxonomy;
 
-public enum Age implements DeepCopy<Enum>{
-    INFANT, CHILD, ADOLESCENT, YOUNG, ADULT, MIDDLEAGED, SENIOR;
-
-    public Enum deepCopy(){
-        //System.arraycopy(Age.INFANT,0, Age.SENIOR, 0, 6);
-
-
-        }
-
-    public Enum deepCopyFrom(Enum e){}
+public enum Age  {
+    INFANT("INFANT"),
+    CHILD("CHILD"),
+    ADOLESCENT("ADOLESCENT"),
+    YOUNG("YOUNG"),
+    ADULT("ADULT"),
+    MIDDLEAGED("MIDDLEAGED"),
+    SENIOR("SENIOR");
 
 
-}
+
+    Age(String age){
+        this.age = age;
+    }
+
+    private String age;
+
+    }

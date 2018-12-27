@@ -99,33 +99,33 @@ public class Animals extends Mammals{
 
     @Override
     public Animals shallowCopy(){
-        Animals animal = (Animals) super.shallowCopy();
-        animal.tameness = this.getTameness();
-        animal.quadrupedal = this.getQuadrupedal();
-        animal.diet = this.getDiet();
-        return animal;
+        return new Animals((Animals) super.shallowCopy());
     }
 
     @Override
-    public Animals shallowCopyFrom(Creatures c){
-        c = super.shallowCopyFrom(c);
-        ((Animals)c).tameness = this.getTameness();
-        ((Animals)c).diet = this.getDiet();
-        ((Animals)c).quadrupedal = this.getQuadrupedal();
-        return (Animals)c;
+    public void shallowCopyFrom(Creatures creature){
+        super.shallowCopyFrom(creature);
+        this.tameness = ((Animals)creature).tameness;
+        this.diet = ((Animals)creature).diet;
+        this.quadrupedal = ((Animals)creature).quadrupedal;
+
     }
 
-    /*
+
+
+
     @Override
     public Animals deepCopy(){
-        return new Animals(this);
+        return new Animals((Animals) super.deepCopy());
     }
 
     @Override
-    public Animals deepCopyFrom(Animals animal){
-        return new Animals(animal);
-
+    public void deepCopyFrom(Creatures creature){
+        super.deepCopyFrom(creature);
+        this.quadrupedal = ((Animals)creature).getQuadrupedal();
+        this.diet = ((Animals)creature).getDiet();
+        this.tameness = ((Animals)creature).getTameness();
     }
 
-*/
+
 }
