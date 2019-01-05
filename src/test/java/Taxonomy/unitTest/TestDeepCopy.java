@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+
 public class TestDeepCopy {
     private Animals yogi;
     private Animals bear;
