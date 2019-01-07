@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-public class XMLBased implements CodingStrategy{
+public class XMLBased {
     public String serialize(Object o){
 
         try (FileOutputStream fos = new FileOutputStream("xmlData.xml");

@@ -1,10 +1,8 @@
 package Taxonomy;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
-public class BinaryBased implements CodingStrategy {
+public class BinaryBased implements CodingStrategy<byte[]> {
 
     public byte[] serialize(Object object) {
 
@@ -25,14 +23,11 @@ public class BinaryBased implements CodingStrategy {
         return stream;
     }
 
-    
 
-
-    public Object deserialize(byte[] stream){
+    public Object deserialize(byte[] bytes){
         Creatures creature = null;
 
         try(FileInputStream f = new FileInputStream("data.ser");
-            ByteArrayInputStream bais = new ByteArrayInputStream(stream);
             ObjectInputStream ois = new ObjectInputStream(f);
             ) {
             while (true){
