@@ -1,11 +1,15 @@
 package Taxonomy;
 
-public class Animals extends Mammals{
+import java.io.Serializable;
+
+public class Animals extends Mammals {
 
     private boolean quadrupedal;
     private Diet diet;
     private Tameness tameness;
 
+
+    public Animals(){}
 
     public Animals(String species, Reproduction reproduction, Respiration respiration, Language language, Hair hair, Diet diet, Tameness tameness, boolean quadrupedal){
         super(species, reproduction, respiration, language, hair);

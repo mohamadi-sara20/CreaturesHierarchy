@@ -1,4 +1,4 @@
-package unitTest;
+package Taxonomy.unitTest;
 
 import Taxonomy.*;
 import org.junit.Before;

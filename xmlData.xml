@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="10.0.2" class="java.beans.XMLDecoder">
+ <object class="Taxonomy.Animals">
+  <void property="hair">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>Taxonomy.Hair</class>
+    <string>HAIR</string>
+   </object>
+  </void>
+  <void property="language">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>Taxonomy.Language</class>
+    <string>NA</string>
+   </object>
+  </void>
+  <void property="species">
+   <string>Bear</string>
+  </void>
+  <void property="tameness">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>Taxonomy.Tameness</class>
+    <string>WILD</string>
+   </object>
+  </void>
+ </object>
+</java>

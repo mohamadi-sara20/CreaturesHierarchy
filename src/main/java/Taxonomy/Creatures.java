@@ -1,12 +1,15 @@
 package Taxonomy;
 
-public abstract class Creatures implements Cloneable, Comparable<Creatures>, ShallowCopy<Creatures>, DeepCopy<Creatures>{
+import java.io.Serializable;
+
+public abstract class Creatures implements Cloneable, Comparable<Creatures>, ShallowCopy<Creatures>, DeepCopy<Creatures>, Serializable {
 
     private Reproduction reproduction;
     private Respiration respiration;
     private Language language;
     private String species;
 
+    public Creatures(){}
     public Creatures(String species, Reproduction reproduction, Respiration respiration, Language language){
 
         this.species = species;
