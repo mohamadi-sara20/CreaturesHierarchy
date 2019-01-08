@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="10.0.2" class="java.beans.XMLDecoder">
+ <object class="Taxonomy.Birds">
+  <void property="language">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>Taxonomy.Language</class>
+    <string>LIMITED</string>
+   </object>
+  </void>
+  <void property="species">
+   <string>Duck</string>
+  </void>
+ </object>
+</java>

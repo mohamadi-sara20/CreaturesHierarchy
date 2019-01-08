@@ -6,6 +6,8 @@ public class Birds extends Creatures {
     private boolean feathers;
     private Diet diet;
 
+    public Birds(){}
+
     public Birds(String species, Reproduction reproduction, Respiration respiration, Language language, boolean feathers, Diet diet, boolean fly){
         super(species, reproduction, respiration, language);
         this.feathers = feathers;

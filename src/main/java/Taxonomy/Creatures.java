@@ -1,7 +1,22 @@
 package Taxonomy;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlValue;
+import java.io.Serializable;
+@JsonIgnoreProperties(ignoreUnknown =  true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Humans.class, name = "Humans"),
+
+        @JsonSubTypes.Type(value = Animals.class, name = "Cat"),
+
+        @JsonSubTypes.Type(value =  Birds.class, name = "Birds")})
+
+@XmlRootElement
 public abstract class Creatures implements Cloneable, Comparable<Creatures>, ShallowCopy<Creatures>, DeepCopy<Creatures>, Serializable {
 
     private Reproduction reproduction;
@@ -10,6 +25,7 @@ public abstract class Creatures implements Cloneable, Comparable<Creatures>, Sha
     private String species;
 
     public Creatures(){}
+
     public Creatures(String species, Reproduction reproduction, Respiration respiration, Language language){
 
         this.species = species;
@@ -34,9 +50,13 @@ public abstract class Creatures implements Cloneable, Comparable<Creatures>, Sha
     public void setSpecies(String species){this.species = species;}
 
 
+    @XmlValue
     public Reproduction getReproduction(){return this.reproduction;}
+    @XmlValue
     public Respiration getRespiration(){return  this.respiration;}
+    @XmlValue
     public Language getLanguage(){return this.language;}
+    @XmlValue
     public String getSpecies(){return this.species;}
 
 

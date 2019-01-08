@@ -5,6 +5,8 @@ public class Humans extends Mammals {
     private Gender gender;
     private Age age;
 
+    public Humans(){}
+
     public Humans(String species, Reproduction reproduction, Respiration respiration, Language language, Hair hair, Age age, Gender gender){
         super(species, reproduction, respiration, language, hair);
         this.gender = gender;

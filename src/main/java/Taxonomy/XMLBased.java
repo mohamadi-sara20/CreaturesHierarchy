@@ -1,23 +1,38 @@
 package Taxonomy;
 
-import java.beans.XMLEncoder;
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
-public class XMLBased {
+
+public class XMLBased implements CodingStrategy<String>{
+
+
+
     public String serialize(Object o){
-
-        try (FileOutputStream fos = new FileOutputStream("xmlData.xml");
-             BufferedOutputStream bos = new BufferedOutputStream(fos);
-             XMLEncoder xmlEncoder = new XMLEncoder(bos);){
-            xmlEncoder.writeObject(o);
+        String serialized = "";
+        XmlMapper xmlMapper = new XmlMapper();
+        try {
+            serialized = xmlMapper.writeValueAsString(o);
         }
         catch (IOException e){
-            System.err.println(e.getStackTrace());
+            System.err.println("Problem converting to string!");
         }
-    return "s";
+        return serialized;
+    }
+
+    public Object deserialize(String o){
+        Creatures creature = null;
+        XmlMapper xmlMapper = new XmlMapper();
+
+        try {
+
+            creature = (Creatures) xmlMapper.readValue(o, Creatures.class);
+        }
+
+        catch (IOException e){
+            System.err.println("Problem converting to Creatures object!!");
+        }
+        return creature;
     }
 
 
