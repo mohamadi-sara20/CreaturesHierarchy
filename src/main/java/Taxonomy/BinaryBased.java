@@ -1,19 +1,20 @@
 package Taxonomy;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class BinaryBased implements CodingStrategy<byte[]> {
 
-    public byte[] serialize(Object object) {
+    /*public byte[] serialize(Object object) {
 
         byte[] stream = null;
 
-        try (FileOutputStream fos = new FileOutputStream("data.ser");
+        try (
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(fos);
-              ObjectOutputStream oos = new ObjectOutputStream(baos)){
+              ObjectOutputStream oos = new ObjectOutputStream(fos)){
             stream = baos.toByteArray();
-            objectOutputStream.writeObject(stream);
+            oos.writeObject(stream);
         }
 
         catch (IOException e) {
@@ -22,31 +23,58 @@ public class BinaryBased implements CodingStrategy<byte[]> {
 
         return stream;
     }
+    */
 
+    public  byte[] serialize(Object object) {
+        byte[] bytes = null;
 
-    public Object deserialize(byte[] bytes){
-        Creatures creature = null;
-
-        try(FileInputStream f = new FileInputStream("data.ser");
-            ObjectInputStream ois = new ObjectInputStream(f);
-            ) {
-            while (true){
-                creature = (Creatures) ois.readObject();
-            }
+        //Convert object to byte array
+        //What really happens?
+        try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
+             ObjectOutputStream oos = new ObjectOutputStream(bos)){
+            oos.writeObject(object);
+            bytes = bos.toByteArray();
         }
-
-        catch (EOFException e){
-            System.out.println("No more records!");
-        }
-
         catch (IOException e){
+            System.err.println("Could not convert object!");
+        }
+
+
+        //Write the object to a file
+        try(FileOutputStream fos = new FileOutputStream("binarySerialized.ser");
+            ObjectOutputStream os = new ObjectOutputStream(fos)){
+            os.writeObject(bytes);
+        }
+        catch (IOException e){
+            System.err.println("Could not write to file!");
+        }
+
+
+        return bytes;
+    }
+
+
+
+
+    public Creatures deserialize(byte[] objectBytes){
+        Creatures creature = null;
+        try(ByteArrayInputStream bis = new ByteArrayInputStream(objectBytes);
+            ObjectInputStream ois = new ObjectInputStream(bis)) {
+
+            creature = (Creatures) ois.readObject();
         }
 
         catch (ClassNotFoundException e){
+            System.err.println("Class not found!");
         }
+        catch (IOException e){
+            System.err.println("Object could not be read!");
+        }
+
 
         return creature;
     }
+
 
 }
 
