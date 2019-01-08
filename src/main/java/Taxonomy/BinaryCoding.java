@@ -2,7 +2,7 @@ package Taxonomy;
 
 import java.io.*;
 
-public class BinaryBased implements CodingStrategy<byte[]> {
+public class BinaryCoding implements CodingStrategy<byte[]> {
 
 
     public  byte[] serialize(Object object) {

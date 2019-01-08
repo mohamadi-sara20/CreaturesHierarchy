@@ -10,9 +10,9 @@ public class Test {
         Humans memol = new Humans("Homo Sapiens", Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
         Creatures theUglyDuckling = new Birds("Duck", Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
 
-BinaryBased binaryBased = new BinaryBased();
-            XMLBased xmlBased = new XMLBased();
-            JSONBased jsonBased = new JSONBased();
+BinaryCoding binaryBased = new BinaryCoding();
+            XMLCoding xmlBased = new XMLCoding();
+            JSONCoding jsonBased = new JSONCoding();
             byte[] s = binaryBased.serialize(yogi);
             //String fff = xmlBased.serializ(theUglyDuckling);
            // System.out.println(xmlBased.deserializ(fff));

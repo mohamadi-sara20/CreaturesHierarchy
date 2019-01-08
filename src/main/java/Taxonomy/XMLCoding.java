@@ -4,7 +4,7 @@ import java.io.IOException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 
-public class XMLBased implements CodingStrategy<String>{
+public class XMLCoding implements CodingStrategy<String>{
 
 
 

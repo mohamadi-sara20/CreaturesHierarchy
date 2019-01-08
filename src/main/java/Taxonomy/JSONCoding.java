@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.*;
 import java.io.IOException;
-public class JSONBased implements CodingStrategy<String> {
+public class JSONCoding implements CodingStrategy<String> {
 
     public String serialize(Object object){
         String serializedString = "";
