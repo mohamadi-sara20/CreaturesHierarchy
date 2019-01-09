@@ -1,5 +1,7 @@
 package Taxonomy;
 
+import org.apache.commons.lang.SerializationUtils;
+
 import java.io.*;
 
 public class BinaryCoding implements CodingStrategy<byte[]> {

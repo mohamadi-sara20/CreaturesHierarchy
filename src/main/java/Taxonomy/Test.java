@@ -22,7 +22,17 @@ BinaryCoding binaryBased = new BinaryCoding();
         String ss = jsonBased.serialize(yogi);
         System.out.println(ss);
         System.out.println(jsonBased.deserialize(ss));
+
+        Xml xml1 = new Xml();
+
+        xml.serialize(yogi);
+        System.out.println(xml.deserialize(xml.serialize(yogi)));
+        System.out.println(xmlBased.deserialize(xmlBased.serialize(yogi)));
+
+
     }
+
+
 
 
 }

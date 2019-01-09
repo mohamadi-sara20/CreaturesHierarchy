@@ -16,3 +16,5 @@ public class Xml implements Strategy<String>{
         return xs.fromXML(xml);
     }
 }
+
+
