@@ -11,7 +11,7 @@ public class CodingFactory {
 
         else if("BinaryCoding".equalsIgnoreCase(type)) {
             CodingStrategy<byte[]> codingStrategy = new BinaryCoding();
-            return new BinaryCoding();
+            return codingStrategy;
         }
 
         else if("XMLCoding".equalsIgnoreCase(type)){
