@@ -39,6 +39,9 @@ public class BinaryCoding implements CodingStrategy<byte[]> {
         }
         return creature;
     }
+
+
+
 }
 
 

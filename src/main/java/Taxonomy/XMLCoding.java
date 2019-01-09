@@ -28,7 +28,6 @@ public class XMLCoding implements CodingStrategy<String>{
         XmlMapper xmlMapper = new XmlMapper();
 
         try {
-
             creature = (Creatures) xmlMapper.readValue(xmlString, Creatures.class);
         }
 

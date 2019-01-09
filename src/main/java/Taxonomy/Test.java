@@ -14,16 +14,14 @@ BinaryCoding binaryBased = new BinaryCoding();
             XMLCoding xmlBased = new XMLCoding();
             JSONCoding jsonBased = new JSONCoding();
             byte[] s = binaryBased.serialize(yogi);
-            //String fff = xmlBased.serializ(theUglyDuckling);
            // System.out.println(xmlBased.deserializ(fff));
 
         CodingStrategy xml = CodingFactory.createSerializer("XMlCoding");
         BinaryCoding binaryCoding = new BinaryCoding();
-
-
-
-
-
+        XMLCoding xmlCoding = new XMLCoding();
+        String ss = jsonBased.serialize(yogi);
+        System.out.println(ss);
+        System.out.println(jsonBased.deserialize(ss));
     }
 
 

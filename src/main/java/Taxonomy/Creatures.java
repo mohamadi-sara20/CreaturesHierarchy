@@ -3,10 +3,10 @@ package Taxonomy;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlValue;
 import java.io.Serializable;
+
 @JsonIgnoreProperties(ignoreUnknown =  true)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
 @JsonSubTypes({
@@ -174,7 +174,24 @@ public abstract class Creatures implements Cloneable, Comparable<Creatures>, Sha
         this.language = creature.getLanguage();
     }
 
+/*
+    private void readObject(ObjectInputStream aInputStream) throws ClassNotFoundException, IOException
+    {
+        species = aInputStream.readUTF();
+        reproduction = (Reproduction) aInputStream.readObject();
+        respiration = (Respiration) aInputStream.readObject();
+        language = (Language) aInputStream.readObject();
+    }
 
+    private void writeObject(ObjectOutputStream aOutputStream) throws IOException
+    {
+        aOutputStream.writeUTF(species);
+        aOutputStream.writeObject(reproduction);
+        aOutputStream.writeObject(respiration);
+        aOutputStream.writeObject(language);
+    }
+
+    */
 }
 
 
