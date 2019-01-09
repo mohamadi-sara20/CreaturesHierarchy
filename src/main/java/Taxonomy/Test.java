@@ -16,6 +16,10 @@ BinaryCoding binaryBased = new BinaryCoding();
             byte[] s = binaryBased.serialize(yogi);
             //String fff = xmlBased.serializ(theUglyDuckling);
            // System.out.println(xmlBased.deserializ(fff));
+
+        CodingFactory codingFactory = new CodingFactory();
+        CodingStrategy binaryCoding = codingFactory.createSerializer("BinaryCoding");
+
         System.out.println(binaryBased.deserialize(s));
 
 
