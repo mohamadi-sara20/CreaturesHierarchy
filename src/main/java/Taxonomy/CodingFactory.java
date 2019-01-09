@@ -5,17 +5,22 @@ public class CodingFactory {
 
     public static CodingStrategy createSerializer(String type){
 
+
         if(type == null)
             return null;
 
         else if("BinaryCoding".equalsIgnoreCase(type)) {
-           return new BinaryCoding();
+            CodingStrategy<byte[]> codingStrategy = new BinaryCoding();
+            return new BinaryCoding();
         }
+
         else if("XMLCoding".equalsIgnoreCase(type)){
-            return new XMLCoding();
+            CodingStrategy<String> codingStrategy = new XMLCoding();
+            return codingStrategy;
         }
         else if("JSONCoding".equalsIgnoreCase(type)){
-            return new JSONCoding();
+            CodingStrategy<String> codingStrategy = new JSONCoding();
+            return codingStrategy;
         }
 
         throw new ExceptionInInitializerError(type + " could not be initialized!");

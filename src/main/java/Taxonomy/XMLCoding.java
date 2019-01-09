@@ -8,25 +8,28 @@ public class XMLCoding implements CodingStrategy<String>{
 
 
 
-    public String serialize(Object o){
-        String serialized = "";
+    public String serialize(Object object){
+        String objectSerialized = "";
         XmlMapper xmlMapper = new XmlMapper();
+
         try {
-            serialized = xmlMapper.writeValueAsString(o);
+            objectSerialized = xmlMapper.writeValueAsString(object);
         }
         catch (IOException e){
             System.err.println("Problem converting to string!");
         }
-        return serialized;
+
+        return objectSerialized;
     }
 
-    public Object deserialize(String o){
+
+    public Object deserialize(String xmlString){
         Creatures creature = null;
         XmlMapper xmlMapper = new XmlMapper();
 
         try {
 
-            creature = (Creatures) xmlMapper.readValue(o, Creatures.class);
+            creature = (Creatures) xmlMapper.readValue(xmlString, Creatures.class);
         }
 
         catch (IOException e){
