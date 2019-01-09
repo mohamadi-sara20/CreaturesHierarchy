@@ -12,7 +12,7 @@ import java.io.Serializable;
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Humans.class, name = "Humans"),
 
-        @JsonSubTypes.Type(value = Animals.class, name = "Cat"),
+        @JsonSubTypes.Type(value = Animals.class, name = "Animals"),
 
         @JsonSubTypes.Type(value =  Birds.class, name = "Birds")})
 

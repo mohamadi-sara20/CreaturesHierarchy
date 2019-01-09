@@ -1,13 +1,14 @@
 package Taxonomy.unitTest;
 
 import Taxonomy.*;
+import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class TestCodingStrategy {
     private Animals yogi;
@@ -175,7 +176,77 @@ public class TestCodingStrategy {
         Assert.assertTrue(jsonCoding.deserialize(serializedString1).getClass() == Birds.class);
     }
 
+    @Test
+    public void writeToFile() {
+        try (FileOutputStream fos = new FileOutputStream("binarySerialized.ser");
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            oos.writeObject(binaryCoding.serialize(yogi));
+            //oos.writeChar((int) '\n');
+            oos.writeObject(binaryCoding.serialize(memol));
+            //oos.writeChar((int) '\n');
+            oos.writeObject(binaryCoding.serialize(theUglyDuckling));
+            //oos.writeChar((int) '\n');
+        } catch (IOException e) {
+            System.err.println(e.getStackTrace());
+        }
 
+
+        try (FileOutputStream fos = new FileOutputStream("xmlSerialized.ser");
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            oos.writeObject(xmlCoding.serialize(yogi));
+            oos.writeChar((int) '\n');
+            oos.writeObject(xmlCoding.serialize(memol));
+            oos.writeChar((int) '\n');
+            oos.writeObject(xmlCoding.serialize(theUglyDuckling));
+            oos.writeChar((int) '\n');
+        } catch (IOException e) {
+            System.err.println(e.getStackTrace());
+        }
+
+        try (FileOutputStream fos = new FileOutputStream("jsonSerialized.ser");
+            ObjectOutputStream oos = new ObjectOutputStream(fos)){
+            oos.writeObject(jsonCoding.serialize(yogi));
+            oos.writeChar((int) '\n');
+            oos.writeObject(jsonCoding.serialize(memol));
+            oos.writeChar((int) '\n');
+            oos.writeObject(jsonCoding.serialize(theUglyDuckling));
+            oos.writeChar((int) '\n');
+        }
+        catch (IOException e){
+            System.err.println(e.getStackTrace());
+        }
+    }
+
+    @Test
+    public void readFromFile(){
+
+        try (
+             FileInputStream fos = new FileInputStream("binarySerialized.ser");
+             ObjectInputStream ois = new ObjectInputStream(fos);){
+
+            while (true){
+                try {
+                    while (true) {
+                        byte[] bytes = FileUtils.readFileToByteArray(new File("binarySerialized.ser"));
+                        System.out.println(binaryCoding.deserialize(bytes));
+                    }
+                }
+                catch (EOFException e){
+                System.out.println("No more records!");}
+
+                catch (FileNotFoundException e){
+                    System.err.println("File not found!");
+                }
+            }
+        }
+
+        catch (IOException e){
+            System.err.println(e.getStackTrace());
+        }
+
+
+
+    }
 
 
 
