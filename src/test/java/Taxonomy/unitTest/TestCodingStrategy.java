@@ -24,7 +24,7 @@ public class TestCodingStrategy {
 
         yogi = new Animals("Bear", Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
         memol = new Humans("Homo Sapiens", Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
-        theUglyDuckling = new Birds("Duck", Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
+        theUglyDuckling = new Birds("Duck", Reproduction.OVIPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
 
         binaryCoding = new BinaryCoding();
         xmlCoding = new XMLCoding();

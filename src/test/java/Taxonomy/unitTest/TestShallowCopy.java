@@ -25,11 +25,11 @@ public class TestShallowCopy {
 
         yogi = new Animals("Bear", Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.NA, Hair.HAIR, Diet.CARNIVOROUS, Tameness.WILD, false);
         memol = new Humans("Homo Sapiens", Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.HAIR, Age.YOUNG, Gender.FEMALE);
-        theUglyDuckling = new Birds("Duck", Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
+        theUglyDuckling = new Birds("Duck", Reproduction.OVIPAROUS, Respiration.LUNGS, Language.LIMITED, true, Diet.HERBIVOROUS, true);
 
         bear = new Animals("Bear", Reproduction.VIVIPAROUS, Respiration.LUNGS, Language.LIMITED, Hair.FUR, Diet.CARNIVOROUS, Tameness.DOMESTIC, false);
-        human = new Humans("Homo Sapiens", Reproduction.OVIOPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.FUR, Age.ADOLESCENT, Gender.FEMALE);
-        bird = new Birds("Duck", Reproduction.OVIOPAROUS, Respiration.GILLS, Language.LIMITED, false, Diet.CARNIVOROUS, false);
+        human = new Humans("Homo Sapiens", Reproduction.OVIPAROUS, Respiration.LUNGS, Language.UNLIMITED, Hair.FUR, Age.ADOLESCENT, Gender.FEMALE);
+        bird = new Birds("Duck", Reproduction.OVIPAROUS, Respiration.GILLS, Language.LIMITED, false, Diet.CARNIVOROUS, false);
 
         yogiCopy =  yogi.shallowCopy();
         memolCopy = memol.shallowCopy();
