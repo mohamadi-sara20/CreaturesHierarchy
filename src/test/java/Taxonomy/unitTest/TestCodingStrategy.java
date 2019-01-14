@@ -1,7 +1,6 @@
 package Taxonomy.unitTest;
 
 import Taxonomy.*;
-import org.apache.commons.lang.SerializationUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -165,7 +164,6 @@ public class TestCodingStrategy {
         serializedString1 = jsonCoding.serialize(yogi);
         serializedString2 = jsonCoding.serialize(yogi);
 
-
         Assert.assertTrue(jsonCoding.deserialize(serializedString1).getClass() == Animals.class);
         serializedString1 =  jsonCoding.serialize(memol);
         Assert.assertTrue(jsonCoding.deserialize(serializedString1).getClass() == Humans.class);
@@ -175,7 +173,7 @@ public class TestCodingStrategy {
 
     @Test
     public void writeToFile() {
-        try (FileOutputStream fos = new FileOutputStream("binarySerialized.ser");
+        try (FileOutputStream fos = new FileOutputStream("binarySerialized.bin");
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
             oos.writeObject(yogi);
             oos.writeObject(memol);
@@ -186,27 +184,30 @@ public class TestCodingStrategy {
         }
 
 
-        try (FileOutputStream fos = new FileOutputStream("xmlSerialized.ser");
-             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-            oos.writeObject(xmlCoding.serialize(yogi));
-            //oos.writeChar((int) '\n');
-            oos.writeObject(xmlCoding.serialize(memol));
-            //oos.writeChar((int) '\n');
-            oos.writeObject(xmlCoding.serialize(theUglyDuckling));
-            //oos.writeChar((int) '\n');
+        try (FileWriter fw = new FileWriter("xmlSerialized.xml");
+             BufferedWriter bw = new BufferedWriter(fw);) {
+                 bw.write(xmlCoding.serialize(yogi));
+                 bw.newLine();
+                 bw.write(xmlCoding.serialize(memol));
+                 bw.newLine();
+                 bw.write(xmlCoding.serialize(theUglyDuckling));
+                 bw.newLine();
+
         } catch (IOException e) {
             System.err.println(e.getStackTrace());
         }
 
-        try (FileOutputStream fos = new FileOutputStream("jsonSerialized.ser");
-            ObjectOutputStream oos = new ObjectOutputStream(fos)){
-            oos.writeObject(jsonCoding.serialize(yogi));
-            //oos.writeChar((int) '\n');
-            oos.writeObject(jsonCoding.serialize(memol));
-            //oos.writeChar((int) '\n');
-            oos.writeObject(jsonCoding.serialize(theUglyDuckling));
-            //oos.writeChar((int) '\n');
+        try (FileWriter fw = new FileWriter("jsonSerialized.txt");
+                BufferedWriter bw = new BufferedWriter(fw);){
+
+            bw.write(jsonCoding.serialize(yogi));
+            bw.newLine();
+            bw.write(jsonCoding.serialize(memol));
+            bw.newLine();
+            bw.write(jsonCoding.serialize(theUglyDuckling));
+            bw.newLine();
         }
+
         catch (IOException e){
             System.err.println(e.getStackTrace());
         }
@@ -214,16 +215,29 @@ public class TestCodingStrategy {
 
     @Test
     public void readFromFile() {
+        try (FileReader fr = new FileReader("xmlSerialized.xml");
+             BufferedReader br = new BufferedReader(fr)) {
+            String l;
+            while ((l = br.readLine()) != null)
+                System.out.println(l);
 
-        try (
-                FileInputStream fos = new FileInputStream("xmlSerialized.ser");
-                ObjectInputStream ois = new ObjectInputStream(fos)) {
-            while (true) {
-                System.out.println((xmlCoding.deserialize((ois.readObject().toString()))));
-            }
         } catch (EOFException e) {
             System.out.println("No more records!");
-        } catch (ClassNotFoundException e) {
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found!");
+        } catch (IOException e) {
+            System.err.println(e.getStackTrace());
+        }
+
+
+        try (FileReader fr = new FileReader("jsonSerialized.txt");
+            BufferedReader br = new BufferedReader(fr);) {
+            String l;
+            while ((l = br.readLine()) != null)
+                System.out.println(l);
+        }
+        catch (EOFException e) {
+            System.out.println("No more records!");
         } catch (FileNotFoundException e) {
             System.err.println("File not found!");
         } catch (IOException e) {
@@ -232,23 +246,7 @@ public class TestCodingStrategy {
 
 
         try (
-                FileInputStream fos = new FileInputStream("jsonSerialized.ser");
-                ObjectInputStream ois = new ObjectInputStream(fos)) {
-            while (true) {
-                System.out.println(((ois.readObject())));
-            }
-        } catch (EOFException e) {
-            System.out.println("No more records!");
-        } catch (ClassNotFoundException e) {
-        } catch (FileNotFoundException e) {
-            System.err.println("File not found!");
-        } catch (IOException e) {
-            System.err.println(e.getStackTrace());
-        }
-
-
-        try (
-                FileInputStream fos = new FileInputStream("binarySerialized.ser");
+                FileInputStream fos = new FileInputStream("binarySerialized.bin");
                 ObjectInputStream ois = new ObjectInputStream(fos)) {
             while (true) {
                 System.out.println(ois.readObject());
@@ -262,12 +260,11 @@ public class TestCodingStrategy {
             System.err.println(e.getStackTrace());
         }
 
-
-
     }
 
 
-
-
-
 }
+
+
+
+

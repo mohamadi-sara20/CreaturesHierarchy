@@ -1,0 +1,3 @@
+{"@type":"Animals","reproduction":"VIVIPAROUS","respiration":"LUNGS","language":"NA","species":"Bear","hair":"HAIR","quadrupedal":false,"diet":"CARNIVOROUS","tameness":"WILD"}
+{"@type":"Humans","reproduction":"VIVIPAROUS","respiration":"LUNGS","language":"UNLIMITED","species":"Homo Sapiens","hair":"HAIR","gender":"FEMALE","age":"YOUNG"}
+{"@type":"Birds","reproduction":"OVIOPAROUS","respiration":"LUNGS","language":"LIMITED","species":"Duck","fly":true,"feathers":true,"diet":"HERBIVOROUS"}

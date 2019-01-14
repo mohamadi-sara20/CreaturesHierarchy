@@ -15,6 +15,7 @@ public class Xml implements Strategy<String>{
         XStream xs = new XStream();
         return xs.fromXML(xml);
     }
+
 }
 
 

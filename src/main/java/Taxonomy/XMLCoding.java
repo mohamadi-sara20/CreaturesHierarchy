@@ -3,10 +3,7 @@ package Taxonomy;
 import java.io.IOException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
-
 public class XMLCoding implements CodingStrategy<String>{
-
-
 
     public String serialize(Object object){
         String objectSerialized = "";

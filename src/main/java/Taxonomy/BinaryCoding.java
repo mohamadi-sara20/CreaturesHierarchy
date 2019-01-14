@@ -1,7 +1,6 @@
 package Taxonomy;
 
-import org.apache.commons.lang.SerializationUtils;
-
+import javax.swing.*;
 import java.io.*;
 
 public class BinaryCoding implements CodingStrategy<byte[]> {
@@ -20,6 +19,8 @@ public class BinaryCoding implements CodingStrategy<byte[]> {
         catch (IOException e){
             System.err.println("Problem converting object!");
         }
+
+
         return bytes;
     }
 
