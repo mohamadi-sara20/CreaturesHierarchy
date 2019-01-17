@@ -1,3 +1,0 @@
-<Animals _type="Animals"><reproduction>VIVIPAROUS</reproduction><respiration>LUNGS</respiration><language>NA</language><species>Bear</species><hair>HAIR</hair><quadrupedal>false</quadrupedal><diet>CARNIVOROUS</diet><tameness>WILD</tameness></Animals>
-<Humans _type="Humans"><reproduction>VIVIPAROUS</reproduction><respiration>LUNGS</respiration><language>UNLIMITED</language><species>Homo Sapiens</species><hair>HAIR</hair><gender>FEMALE</gender><age>YOUNG</age></Humans>
-<Birds _type="Birds"><reproduction>OVIOPAROUS</reproduction><respiration>LUNGS</respiration><language>LIMITED</language><species>Duck</species><fly>true</fly><feathers>true</feathers><diet>HERBIVOROUS</diet></Birds>
